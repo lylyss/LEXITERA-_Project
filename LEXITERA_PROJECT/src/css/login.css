@@ -1,0 +1,11 @@
+.custom-login-modal .modal-dialog {
+  z-index: 9999 !important;
+  margin: auto;
+}
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f8f9fa;
+}

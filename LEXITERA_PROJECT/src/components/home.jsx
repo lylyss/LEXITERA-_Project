@@ -2,7 +2,6 @@ import React from "react";
 import CustomNavbar from "./navbar";
 import Footer from "./footer";
 import { Container } from "react-bootstrap";
-import GradualBlur from "./GradualBlur";
 
 const Home = () => (
   <Container
@@ -17,8 +16,6 @@ const Home = () => (
     }}
   >
     <CustomNavbar expand="lg" fixed="top" />
-    {/* GradualBlur background */}
-    <GradualBlur target="parent" position="bottom" height="6rem" strength={2} divCount={5} curve="bezier" exponential={true} opacity={1} />
     <main
       style={{
         minHeight: "100rem",

@@ -3,6 +3,12 @@
   top: 0;
   width: 100%;
   z-index: 1050;
+  background: rgba(20, 20, 30, 0.479);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .custom-navbar-sticky {
@@ -10,4 +16,10 @@
   top: 0;
   width: 100%;
   z-index: 1050;
+  background: rgba(20, 20, 30, 0.342);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

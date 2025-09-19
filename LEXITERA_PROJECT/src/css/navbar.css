@@ -150,7 +150,7 @@
   .custom-navbar-sticky a,
   .custom-navbar-fixed .nav-link,
   .custom-navbar-sticky .nav-link {
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     padding: 0.4em 0.6em;
   }
 }
@@ -216,4 +216,35 @@
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
+}
+
+.navbar-logo-music {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.music-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b6b64581;
+  border: 2px solid #ffd90054;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(212, 181, 6, 1);
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.navbar-logo-responsive {
+  height: 130px;
+  width: auto;
+  vertical-align: middle;
+}
+
+.navbar-login-dropdown {
+  margin-left: auto;
 }

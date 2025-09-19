@@ -39,24 +39,7 @@ const MusicButton = () => {
 
   return (
     <>
-      <button
-        onClick={toggleAudio}
-        style={{
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%",
-          background: "#b6b64581",
-          border: "2px solid #ffd90054",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-
-          boxShadow: "0 2px 8px rgba(212, 181, 6, 1)",
-          cursor: "pointer",
-          fontSize: "20px",
-        }}
-        aria-label={playing ? "Pausa musica" : "Riproduci musica"}
-      >
+      <button onClick={toggleAudio} className="music-button" aria-label={playing ? "Pausa musica" : "Riproduci musica"}>
         {playing ? (
           // Chiave di sol
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="22" height="22">

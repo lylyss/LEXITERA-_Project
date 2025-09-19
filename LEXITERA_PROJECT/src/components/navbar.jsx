@@ -12,50 +12,15 @@ const CustomNavbar = ({ ...props }) => {
       className="custom-navbar-sticky"
       {...props}
     >
-      <Container
-        fluid
-        className="navbar-responsive-container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexWrap: "nowrap",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", marginLeft: "10px" }}>
+      <Container fluid className="navbar-responsive-container">
+        <div className="navbar-logo-music">
           {/* Bottone musicale piccolo */}
           <MusicButton />
-          <Navbar.Brand
-            href="#home"
-            className="navbar-brand-responsive"
-            style={{
-              padding: 0,
-              marginRight: "24px",
-              marginLeft: "24px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src={logo}
-              alt="Lexitera Logo"
-              className="navbar-logo-responsive"
-              style={{
-                height: "160px",
-                width: "auto",
-                verticalAlign: "middle",
-              }}
-            />
+          <Navbar.Brand href="#home" className="navbar-brand-responsive">
+            <img src={logo} alt="Lexitera Logo" className="navbar-logo-responsive" />
           </Navbar.Brand>
         </div>
-        <Nav
-          className="navbar-nav-responsive"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "18px",
-            flex: 1,
-          }}
-        >
+        <Nav className="navbar-nav-responsive">
           <Nav.Link href="#home">Home page</Nav.Link>
           <Nav.Link href="#news">Notizie</Nav.Link>
           <Nav.Link href="#personaggi">Personaggi</Nav.Link>
@@ -63,7 +28,7 @@ const CustomNavbar = ({ ...props }) => {
           <Nav.Link href="#ricarica">Ricarica</Nav.Link>
           <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
         </Nav>
-        <div style={{ marginLeft: "auto" }}>
+        <div className="navbar-login-dropdown">
           <Dropdown align="end">
             <Dropdown.Toggle variant="primary" id="dropdown-login" style={{ marginLeft: "12px" }}>
               Accedi

@@ -32,7 +32,7 @@
   font-size: 1.4rem !important;
   color: #000000 !important;
   transition: box-shadow 0.2s, border 0.2s;
-  border-radius: 0;
+  border-radius: 5px;
   border: none !important;
   border-bottom: 2px solid transparent;
   padding: 0.5em 1em;
@@ -43,9 +43,9 @@
 .custom-navbar-sticky a:hover,
 .custom-navbar-fixed .nav-link:hover,
 .custom-navbar-sticky .nav-link:hover {
-  box-shadow: 0 0 8px 5px #ffda07;
+  box-shadow: 0 0 8px 5px #bfa100;
   border: none !important;
-  border-bottom: 2px solid #ffd700;
+  border-bottom: 2px solid #bfa100 !important;
   color: #f8f8f8 !important;
 }
 
@@ -54,51 +54,45 @@
 .custom-navbar-sticky a.active,
 .custom-navbar-fixed .nav-link.active,
 .custom-navbar-sticky .nav-link.active {
-  box-shadow: 0 5px 8px 5px #ffd900;
-  border: none;
-  border-bottom: 2px solid #ffd700;
+  box-shadow: 0 5px 8px 5px #bfa100b4;
+  border: none !important;
+  border-bottom: 2px solid #bfa100 !important;
   color: #ffffff !important;
+  animation: gold-rainbow 3s linear infinite;
 }
 
 /* Animazione colore oro arcobaleno */
 @keyframes gold-rainbow {
   0% {
     color: #f0e18c;
-    border-color: #ffd700;
-    box-shadow: 0 0 8px 2px #ffd700;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 8px 2px #bfa100;
   }
   20% {
     color: #ffae00;
-    border-color: #ffae00;
-    box-shadow: 0 0 8px 4px #ffae00;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 8px 4px #bfa100;
   }
   40% {
     color: #ffd000;
-    border-color: #ffc400;
-    box-shadow: 0 0 6px 8px #ffc400f3;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 6px 8px #bfa100;
   }
   60% {
     color: #ffe600;
-    border-color: #ffe600;
-    box-shadow: 0 0 8px 4px #ffe600;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 8px 4px #bfa100;
   }
   80% {
     color: #fff700;
-    border-color: #fff700;
-    box-shadow: 0 0 8px 2px #fff700;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 8px 2px #bfa100;
   }
   100% {
     color: #f3e17a;
-    border-color: #e7d881;
-    box-shadow: 0 0 8px 2px #e2ca3f;
+    border-bottom: 2px solid #bfa100;
+    box-shadow: 0 0 8px 2px #bfa100;
   }
-}
-
-.custom-navbar-fixed a.active,
-.custom-navbar-sticky a.active,
-.custom-navbar-fixed .nav-link.active,
-.custom-navbar-sticky .nav-link.active {
-  animation: gold-rainbow 3s linear infinite;
 }
 
 /* Animazione caduta iniziale */
@@ -121,5 +115,105 @@
 .custom-navbar-sticky a,
 .custom-navbar-fixed .nav-link,
 .custom-navbar-sticky .nav-link {
-  animation: navbar-fall 2s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: navbar-fall 3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.custom-navbar-fixed a,
+.custom-navbar-sticky a,
+.custom-navbar-fixed .nav-link,
+.custom-navbar-sticky .nav-link {
+  animation: navbar-fall 3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Responsive navbar container */
+.navbar-responsive-container {
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .navbar-responsive-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 8px;
+  }
+  .navbar-brand-responsive {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .navbar-logo-responsive {
+    height: 80px !important;
+  }
+  .navbar-nav-responsive {
+    flex-direction: column;
+    gap: 8px !important;
+    width: 100%;
+  }
+  .custom-navbar-fixed a,
+  .custom-navbar-sticky a,
+  .custom-navbar-fixed .nav-link,
+  .custom-navbar-sticky .nav-link {
+    font-size: 1.1rem !important;
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo-responsive {
+    height: 48px !important;
+  }
+  .custom-navbar-fixed a,
+  .custom-navbar-sticky a,
+  .custom-navbar-fixed .nav-link,
+  .custom-navbar-sticky .nav-link {
+    font-size: 0.95rem !important;
+    padding: 0.3em 0.4em;
+  }
+}
+
+/* Responsive Home Container */
+.home-responsive-container {
+  padding: 0 2rem;
+}
+
+.home-main-content h1 {
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+
+.home-main-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .home-responsive-container {
+    padding: 0 1rem;
+  }
+  .home-main-content h1 {
+    font-size: 2.2rem;
+  }
+  .home-main-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-responsive-container {
+    padding: 0 0.5rem;
+  }
+  .home-main-content h1 {
+    font-size: 1.5rem;
+  }
+  .home-main-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-main-content h1 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+  .home-main-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
 }

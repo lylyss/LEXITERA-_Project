@@ -2,14 +2,60 @@ import React from "react";
 import { Navbar, Nav, Container, Dropdown, Form, Button } from "react-bootstrap";
 import logo from "../assets/media/IMG/lexitera_LOGO.png";
 import "../css/navbar.css";
-const CustomNavbar = () => {
+import MusicButton from "./MusicButton";
+
+const CustomNavbar = ({ ...props }) => {
   return (
-    <Navbar variant="dark" expand="lg" className="custom-navbar-sticky">
-      <Container fluid style={{ display: "flex", alignItems: "center", flexWrap: "nowrap" }}>
-        <Navbar.Brand href="#home" style={{ padding: 0, marginRight: "24px", marginLeft: "24px" }}>
-          <img src={logo} alt="Lexitera Logo" style={{ height: "160px", width: "auto", verticalAlign: "middle" }} />
-        </Navbar.Brand>
-        <Nav style={{ display: "flex", alignItems: "center", gap: "18px", flex: 1 }}>
+    <Navbar
+      variant="dark"
+      expand="md" // cambia da lg a md per migliore supporto mobile/tablet
+      className="custom-navbar-sticky"
+      {...props}
+    >
+      <Container
+        fluid
+        className="navbar-responsive-container"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexWrap: "nowrap",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", marginLeft: "10px" }}>
+          {/* Bottone musicale piccolo */}
+          <MusicButton />
+          <Navbar.Brand
+            href="#home"
+            className="navbar-brand-responsive"
+            style={{
+              padding: 0,
+              marginRight: "24px",
+              marginLeft: "24px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={logo}
+              alt="Lexitera Logo"
+              className="navbar-logo-responsive"
+              style={{
+                height: "160px",
+                width: "auto",
+                verticalAlign: "middle",
+              }}
+            />
+          </Navbar.Brand>
+        </div>
+        <Nav
+          className="navbar-nav-responsive"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "18px",
+            flex: 1,
+          }}
+        >
           <Nav.Link href="#home">Home page</Nav.Link>
           <Nav.Link href="#news">Notizie</Nav.Link>
           <Nav.Link href="#personaggi">Personaggi</Nav.Link>
@@ -35,7 +81,12 @@ const CustomNavbar = () => {
                 <Button variant="primary" type="submit" style={{ width: "100%" }}>
                   Accedi
                 </Button>
-                <div style={{ marginTop: "16px", textAlign: "center" }}>
+                <div
+                  style={{
+                    marginTop: "16px",
+                    textAlign: "center",
+                  }}
+                >
                   <a
                     href="#"
                     style={{

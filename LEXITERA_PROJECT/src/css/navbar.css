@@ -1,0 +1,13 @@
+.custom-navbar-fixed {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+.custom-navbar-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}

@@ -5,7 +5,7 @@ const footerStyle = {
   color: "#fff",
   padding: "32px 0 16px 0",
   textAlign: "center",
-  marginTop: "40px",
+  marginTop: "0px",
 };
 
 const linkStyle = {

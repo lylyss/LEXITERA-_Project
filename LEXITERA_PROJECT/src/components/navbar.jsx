@@ -23,7 +23,7 @@ const CustomNavbar = ({ ...props }) => {
             <img
               src={logo}
               alt="Lexitera Logo"
-              className="navbar-logo-responsive"
+              className="navbar-logo-responsive navbar-logo-spin"
               style={{
                 padding: "5px",
                 position: "relative",

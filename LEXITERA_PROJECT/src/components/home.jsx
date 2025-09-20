@@ -1,6 +1,7 @@
 import React from "react";
 import CustomNavbar from "./navbar";
 import Footer from "./footer";
+import MainHome from "./main_home";
 import { Container } from "react-bootstrap";
 
 const Home = () => {
@@ -22,19 +23,7 @@ const Home = () => {
       <div style={{ height: "35px" }}></div>
       <CustomNavbar expand="lg" fixed="top" />
 
-      <main
-        className="home-main-content"
-        style={{
-          minHeight: "100rem",
-          padding: "0 0",
-          textAlign: "center",
-          paddingTop: "70px",
-        }}
-      >
-        {/* Main content */}
-        <h1>Benvenuto su Lexitera</h1>
-        <p>Questa è la homepage del progetto. Esplora le funzionalità moderne offerte dalla nostra piattaforma!</p>
-      </main>
+      <MainHome />
       <Footer />
     </Container>
   );

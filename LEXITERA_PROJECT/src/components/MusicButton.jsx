@@ -26,7 +26,7 @@ const MusicButton = () => {
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
-  }, []);
+  }, [playing]);
 
   useEffect(() => {
     localStorage.setItem("musicPlaying", playing);

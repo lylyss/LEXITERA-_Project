@@ -1,26 +1,52 @@
 import React from "react";
-import { Navbar, Nav, Container, Dropdown, Form, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../assets/media/IMG/lexitera_LOGO.png";
 import "../css/navbar.css";
 import MusicButton from "./MusicButton";
 
 const CustomNavbar = ({ ...props }) => {
   return (
-    <Navbar
-      variant="dark"
-      expand="md" // cambia da lg a md per migliore supporto mobile/tablet
-      className="custom-navbar-sticky"
-      {...props}
-    >
-      <Container fluid className="navbar-responsive-container">
-        <div className="navbar-logo-music">
-          {/* Bottone musicale piccolo */}
+    <Navbar variant="dark" expand="md" className="custom-navbar-sticky" {...props}>
+      <Container
+        fluid
+        className="navbar-responsive-container"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "32px",
+        }}
+      >
+        <div className="navbar-logo-music" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <MusicButton />
-          <Navbar.Brand href="#home" className="navbar-brand-responsive">
-            <img src={logo} alt="Lexitera Logo" className="navbar-logo-responsive" />
+          <Navbar.Brand className="navbar-brand-responsive">
+            <img
+              src={logo}
+              alt="Lexitera Logo"
+              className="navbar-logo-responsive"
+              style={{
+                padding: "5px",
+                position: "relative",
+                top: "-55px",
+                left: "0",
+                zIndex: 2,
+                marginBottom: "-100px",
+                marginLeft: "-10px",
+                marginRight: "-10px",
+                pointerEvents: "none",
+              }}
+            />
           </Navbar.Brand>
         </div>
-        <Nav className="navbar-nav-responsive">
+        <Nav
+          className="navbar-nav-responsive"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "18px",
+          }}
+        >
           <Nav.Link href="#home">Home page</Nav.Link>
           <Nav.Link href="#news">Notizie</Nav.Link>
           <Nav.Link href="#personaggi">Personaggi</Nav.Link>
@@ -28,59 +54,26 @@ const CustomNavbar = ({ ...props }) => {
           <Nav.Link href="#ricarica">Ricarica</Nav.Link>
           <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
         </Nav>
-        <div className="navbar-login-dropdown">
-          <Dropdown align="end">
-            <Dropdown.Toggle variant="primary" id="dropdown-login" style={{ marginLeft: "12px" }}>
-              Accedi
-            </Dropdown.Toggle>
-            <Dropdown.Menu style={{ minWidth: 300, padding: 20 }}>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Inserisci email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Button variant="primary" type="submit" style={{ width: "100%" }}>
-                  Accedi
-                </Button>
-                <div
-                  style={{
-                    marginTop: "16px",
-                    textAlign: "center",
-                  }}
-                >
-                  <a
-                    href="#"
-                    style={{
-                      padding: 0,
-                      textDecoration: "underline",
-                      background: "none",
-                      border: "none",
-                      color: "#0d6efd",
-                    }}
-                  >
-                    Registrati
-                  </a>
-                  {" | "}
-                  <a
-                    href="#"
-                    style={{
-                      padding: 0,
-                      textDecoration: "underline",
-                      background: "none",
-                      border: "none",
-                      color: "#0d6efd",
-                    }}
-                  >
-                    Password dimenticata?
-                  </a>
-                </div>
-              </Form>
-            </Dropdown.Menu>
-          </Dropdown>
+        <div
+          className="navbar-login-dropdown"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "40px", // sposta verso il centro
+          }}
+        >
+          <a href="#login" className="btn btn-primary" style={{ marginLeft: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
+            Accedi
+            <span style={{ display: "inline-flex", alignItems: "center" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="50" height="50">
+                <path
+                  d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z"
+                  fill="#382f04ff"
+                />
+              </svg>
+            </span>
+          </a>
         </div>
       </Container>
     </Navbar>

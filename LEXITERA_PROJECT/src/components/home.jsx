@@ -18,6 +18,8 @@ const Home = () => {
         position: "relative",
       }}
     >
+      {/* Spazio per spostare la navbar più in basso */}
+      <div style={{ height: "35px" }}></div>
       <CustomNavbar expand="lg" fixed="top" />
 
       <main

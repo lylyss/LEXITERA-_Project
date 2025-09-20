@@ -29,7 +29,7 @@
 .custom-navbar-fixed .nav-link,
 .custom-navbar-sticky .nav-link {
   text-decoration: none !important;
-  font-size: 1.4rem !important;
+  font-size: 1rem !important;
   color: #000000 !important;
   transition: box-shadow 0.2s, border 0.2s;
   border-radius: 5px;
@@ -150,7 +150,7 @@
   .custom-navbar-sticky a,
   .custom-navbar-fixed .nav-link,
   .custom-navbar-sticky .nav-link {
-    font-size: 1rem !important;
+    font-size: 0.85rem !important;
     padding: 0.4em 0.6em;
   }
 }
@@ -163,7 +163,7 @@
   .custom-navbar-sticky a,
   .custom-navbar-fixed .nav-link,
   .custom-navbar-sticky .nav-link {
-    font-size: 0.95rem !important;
+    font-size: 0.75rem !important;
     padding: 0.3em 0.4em;
   }
 }
@@ -225,22 +225,22 @@
 }
 
 .music-button {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: #b6b64581;
-  border: 2px solid #ffd90054;
+  background: #1fbdfc00;
+  border: 1px solid #f7bc03;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(212, 181, 6, 1);
+  box-shadow: #f5b800;
   cursor: pointer;
   font-size: 20px;
   margin-right: 10px;
 }
 
 .navbar-logo-responsive {
-  height: 130px;
+  height: 170px;
   width: auto;
   vertical-align: middle;
 }

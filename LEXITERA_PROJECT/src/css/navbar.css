@@ -42,7 +42,9 @@
 .custom-navbar-sticky .nav-link:hover {
   box-shadow: 0 0 8px 5px #bfa100;
   border: none !important;
-  border-top: 2px solid #bfa100 !important;
+  padding-top: 27px;
+  padding-bottom: 28px;
+  border-top: 5px solid #ffbf00c7 !important;
   color: #000 !important;
   text-shadow: 0 0 8px #ffd700, 0 0 16px #ffd700;
   box-shadow: none;
@@ -58,7 +60,7 @@
   color: #ffffff !important;
   text-shadow: 0 0 5px #ffd700, 0 0 5px #eeca00;
   box-shadow: none;
-  animation: gold-rainbow-glow 1.5s linear infinite;
+  animation: gold-rainbow-glow 2s linear infinite;
 }
 
 /* Animazione glow oro arcobaleno */
@@ -73,10 +75,10 @@
     text-shadow: 0 0px 10px #ffd000, 0 0 10px #e9bf07;
   }
   60% {
-    text-shadow: 0 0px 10px #ffe600, 0 0 10px #ffe600;
+    text-shadow: 0 0px 10px #ffe600, 0 0 10px #ffc400;
   }
   80% {
-    text-shadow: 0 0px 10px #fff70d, 0 0 10px #fff700;
+    text-shadow: 0 0px 10px #ff7a0d, 0 0 10px #fff700;
   }
   100% {
     text-shadow: 0 0px 10px #ffd700, 0 0 10px #ffd700;
@@ -213,8 +215,8 @@
 }
 
 .music-button {
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #1fbdfc00;
   border: 1px solid #f7ba0369;
@@ -225,6 +227,9 @@
   cursor: pointer;
   font-size: 20px;
   margin-right: 10px;
+  /* Golden rainbow glow */
+  box-shadow: 0 0 10px #e9e3bf, 0 0 25px #ffbb00;
+  animation: gold-rainbow-glow 2s linear infinite;
 }
 
 .navbar-logo-responsive {
@@ -251,4 +256,16 @@
 
 .navbar-logo-spin {
   animation: logo-spin 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Rimuovi effetti hover/active dal tasto Accedi */
+.navbar-login-dropdown .btn,
+.navbar-login-dropdown .btn:active,
+.navbar-login-dropdown .btn:focus,
+.navbar-login-dropdown .btn:hover {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }

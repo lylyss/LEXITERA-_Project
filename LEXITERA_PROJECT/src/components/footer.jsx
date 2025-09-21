@@ -23,7 +23,7 @@ const Footer = () => (
       src={logo}
       alt="Lexitera Logo"
       style={{
-        height: "100px",
+        height: "120px",
         marginRight: "8px",
         verticalAlign: "middle",
         filter: "drop-shadow(0 2px 8px #0008)",

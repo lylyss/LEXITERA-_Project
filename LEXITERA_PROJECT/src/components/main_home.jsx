@@ -346,7 +346,7 @@ const MainHome = () => {
               background: "rgba(43,43,42,0.18)",
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
-              borderRadius: "18px",
+              borderRadius: "12px",
               boxShadow: "0 2px 12px #ffffff80",
               padding: "2rem 2rem 1.5rem 2rem",
               display: "flex",

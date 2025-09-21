@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 // Placeholder immagini e icone
 const socialIcons = [
   { href: "#", label: "X", icon: "fa-brands fa-x-twitter" },
@@ -16,14 +16,6 @@ const regions = [
   { name: "EXOTROS", img: "darkcity2.png" },
 ];
 
-const news = [
-  { title: "Titolo Notizia 1", href: "#", img: "news1.jpg" },
-  { title: "Titolo Notizia 2", href: "#", img: "news2.jpg" },
-  { title: "Titolo Notizia 3", href: "#", img: "news3.jpg" },
-];
-
-const newsCarouselImages = ["src/assets/media/IMG/floraoldpaper.png", "src/assets/media/IMG/lostlands.png", "src/assets/media/IMG/darkcity1.png"];
-
 const regionVideos = {
   LUXERTIA: "src/assets/media/VIDEO/SantMBG.mp4",
   GEMIDERA: "src/assets/media/VIDEO/CityMBG.mp4",
@@ -35,15 +27,6 @@ const MainHome = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
   const [downloadHover, setDownloadHover] = useState(false);
   const [downloadBtnHover, setDownloadBtnHover] = useState(false);
-  const [carouselIdx, setCarouselIdx] = useState(0);
-
-  // Carosello: avanti/indietro
-  const handlePrev = () => {
-    setCarouselIdx((prev) => (prev === 0 ? newsCarouselImages.length - 1 : prev - 1));
-  };
-  const handleNext = () => {
-    setCarouselIdx((prev) => (prev === newsCarouselImages.length - 1 ? 0 : prev + 1));
-  };
 
   return (
     <div className="main-home-sections">
@@ -265,150 +248,6 @@ const MainHome = () => {
           }}
         />
       </section>
-
-      {/* Sezione 2: Notizie recenti */}
-      <section
-        className="main-section news-section metamorphous-regular"
-        style={{
-          margin: "2rem 0",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "2rem",
-          justifyContent: "center",
-          maxWidth: "900px",
-          marginLeft: "auto",
-          marginRight: "auto",
-          minHeight: "500px",
-        }}
-      >
-        <div
-          className="news-carousel"
-          style={{
-            width: "100%",
-            maxWidth: "700px",
-            margin: "0 auto",
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {/* Titolo sopra immagine con bg blur */}
-          <div
-            style={{
-              position: "absolute",
-              top: "24px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "80%",
-              background: "rgba(43,43,42,0.45)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              borderRadius: "18px",
-              padding: "0.7rem 1.2rem",
-              zIndex: 3,
-              textAlign: "center",
-              color: "#FFD700",
-              fontWeight: "bold",
-              fontSize: "1.5rem",
-              letterSpacing: "1px",
-              boxShadow: "0 2px 12px #0005",
-            }}
-          >
-            {news[carouselIdx]?.title}
-          </div>
-          {/* Carosello immagini centrale */}
-          <div
-            style={{
-              width: "100%",
-              aspectRatio: "18 / 9",
-              background: "#eee",
-              borderRadius: "18px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              overflow: "hidden",
-              position: "relative",
-              marginTop: "60px",
-              marginBottom: "24px",
-              boxShadow: "0 2px 12px #0005",
-            }}
-          >
-            <button
-              onClick={handlePrev}
-              style={{
-                position: "absolute",
-                left: "18px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.3)",
-                border: "none",
-                borderRadius: "50%",
-                color: "#FFD700",
-                fontSize: "2rem",
-                width: "48px",
-                height: "48px",
-                cursor: "pointer",
-                zIndex: 4,
-                boxShadow: "0 2px 8px #0005",
-              }}
-              aria-label="Precedente"
-            >
-              ‹
-            </button>
-            <img
-              src={newsCarouselImages[carouselIdx]}
-              alt={`news-carousel-${carouselIdx}`}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                borderRadius: "18px",
-                transition: "opacity 0.4s",
-                aspectRatio: "18 / 9",
-                boxShadow: "0 2px 12px #0005",
-              }}
-            />
-            <button
-              onClick={handleNext}
-              style={{
-                position: "absolute",
-                right: "18px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.3)",
-                border: "none",
-                borderRadius: "50%",
-                color: "#FFD700",
-                fontSize: "2rem",
-                width: "48px",
-                height: "48px",
-                cursor: "pointer",
-                zIndex: 4,
-                boxShadow: "0 2px 8px #0005",
-              }}
-              aria-label="Successivo"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-        <div className="news-titles" style={{ flex: "1 1 300px", minWidth: "250px" }}>
-          <h3>Notizie recenti</h3>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {news.map((n, idx) => (
-              <li key={idx} style={{ marginBottom: "1rem" }}>
-                <a href={n.href} style={{ fontWeight: "bold", fontSize: "1.1rem", color: "#0d6efd", textDecoration: "underline" }}>
-                  {n.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Sezione 3: Regioni del gioco */}
       <section
         className="main-section regions-section metamorphous-regular"
@@ -494,13 +333,6 @@ const MainHome = () => {
 
       {/* Sezione 4: Social, PEGI, Form */}
       <section className="main-section social-section metamorphous-regular" style={{ margin: "2rem 0", textAlign: "center" }}>
-        <div className="social-icons" style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center", gap: "18px", flexWrap: "wrap" }}>
-          {socialIcons.map((icon) => (
-            <a key={icon.label} href={icon.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: "2rem", color: "#FFD700" }}>
-              <i className={icon.icon}></i>
-            </a>
-          ))}
-        </div>
         <div className="pegi-logo" style={{ marginBottom: "1rem" }}>
           <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" style={{ height: "130px" }} />
         </div>
@@ -573,6 +405,16 @@ const MainHome = () => {
                 Iscriviti
               </button>
             </form>
+          </div>
+          <div
+            className="social-icons"
+            style={{ marginTop: "1.5rem", marginBottom: "1.5rem", display: "flex", justifyContent: "center", gap: "18px", flexWrap: "wrap" }}
+          >
+            {socialIcons.map((icon) => (
+              <a key={icon.label} href={icon.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: "3rem", color: "#111111ff" }}>
+                <i className={icon.icon}></i>
+              </a>
+            ))}
           </div>
         </>
       </section>

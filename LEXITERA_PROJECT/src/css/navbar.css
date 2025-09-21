@@ -40,13 +40,13 @@
 .custom-navbar-sticky a:hover,
 .custom-navbar-fixed .nav-link:hover,
 .custom-navbar-sticky .nav-link:hover {
-  box-shadow: 0 0 8px 5px #bfa100;
+  box-shadow: 0 0 8px 5px #0177ad;
   border: none !important;
   padding-top: 27px;
   padding-bottom: 28px;
-  border-top: 5px solid #ffbf00c7 !important;
+  border-top: 5px solid #dadddfd3 !important;
   color: #000 !important;
-  text-shadow: 0 0 8px #ffd700, 0 0 16px #ffd700;
+  text-shadow: 0 0 10px #00a2ff, 0 0 16px #001aff;
   box-shadow: none;
 }
 
@@ -219,16 +219,16 @@
   height: 38px;
   border-radius: 50%;
   background: #1fbdfc00;
-  border: 1px solid #f7ba0369;
+  border: 1px solid #03eff769;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: #f5b800;
+  box-shadow: #2a6b9b;
   cursor: pointer;
   font-size: 20px;
   margin-right: 10px;
   /* Golden rainbow glow */
-  box-shadow: 0 0 10px #e9e3bf, 0 0 25px #ffbb00;
+  box-shadow: 0 0 10px #e9e3bf, 0 0 25px #00eeff;
   animation: gold-rainbow-glow 2s linear infinite;
 }
 

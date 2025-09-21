@@ -11,7 +11,7 @@ const Home = () => {
       className="home-responsive-container"
       style={{
         minHeight: "100vh",
-        backgroundImage: "url('src/assets/media/IMG/ocean.jpg')",
+        backgroundImage: "url('src/assets/media/IMG/sky-clouds-abstract.jpg')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",

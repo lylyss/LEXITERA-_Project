@@ -73,35 +73,112 @@ const MainHome = () => {
             }}
           />
         )}
-        <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <h2>Scarica il gioco</h2>
-          <div style={{ position: "relative", width: "fit-content" }}>
+        <div style={{ position: "absolute", top: 0, left: 0, width: "300px", height: "100%", zIndex: 2, pointerEvents: "none" }}>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "rgba(43, 43, 42, 0)",
+              backdropFilter: "blur(5px)",
+              WebkitBackdropFilter: "blur(18px)",
+              borderRadius: "24px 0 0 24px",
+            }}
+          />
+        </div>
+        <div style={{ position: "absolute", top: 0, right: 0, width: "300px", height: "100%", zIndex: 2, pointerEvents: "none" }}>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "rgba(43, 43, 42, 0)",
+              backdropFilter: "blur(5px)",
+              WebkitBackdropFilter: "blur(18px)",
+              borderRadius: "0 24px 24px 0",
+            }}
+          />
+        </div>
+        <div
+          style={{
+            marginTop: "350px",
+            position: "relative",
+            zIndex: 3,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "600px",
+            background: "rgba(43,43,42,0.25)",
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(12px)",
+            borderRadius: "24px",
+            boxShadow: "0 2px 12px #0005",
+            padding: "2rem 0",
+          }}
+        >
+          <h2 style={{ fontSize: "2.5rem" }}>Scarica e Gioca</h2>
+          <div
+            style={{
+              position: "relative",
+              width: "fit-content",
+              marginLeft: "auto",
+              marginRight: "auto",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <button
-              className="btn btn-success"
-              style={{ fontSize: "1.2rem", marginBottom: "1rem" }}
+              className="download-btn"
+              style={{
+                fontSize: "2rem",
+                marginBottom: "1rem",
+                background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
+                color: "#181817ff",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "18px",
+                boxShadow: "0 4px 16px #bfa10088",
+                padding: "0.6em 2.2em",
+                letterSpacing: "2px",
+                transition: "background 0.3s, box-shadow 0.3s",
+                cursor: "pointer",
+                outline: "none",
+              }}
               onMouseEnter={() => setDownloadBtnHover(true)}
               onMouseLeave={() => setDownloadBtnHover(false)}
             >
               Download
             </button>
-            <img
-              src="src/assets/media/IMG/GlobFullTrasparent.png"
-              alt="Globo"
-              style={{
-                position: "absolute",
-                left: "50%",
-                top: downloadBtnHover ? "100%" : "0%",
-                opacity: downloadBtnHover ? 1 : 0,
-                transform: "translate(-50%, 0)",
-                width: "220px",
-                zIndex: 5,
-                pointerEvents: "none",
-                transition: "top 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s",
-              }}
-            />
           </div>
-          <div className="dropdown mt-2" style={{ display: "inline-block" }}>
-            <button className="btn btn-secondary dropdown-toggle" type="button" onClick={() => setShowReq((prev) => !prev)} aria-expanded={showReq}>
+          <div
+            className="dropdown mt-2"
+            style={{
+              display: "inline-block",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            <button
+              className="requirements-btn"
+              style={{
+                fontSize: "1.2rem",
+                background: "linear-gradient(90deg, #3d361270 0%, #bfa100 100%)",
+                color: "#fff",
+                fontWeight: "bold",
+                border: "none",
+                borderRadius: "12px",
+                boxShadow: "0 2px 8px #bfa10055",
+                padding: "0.5em 1.5em",
+                letterSpacing: "1px",
+                transition: "background 0.3s, box-shadow 0.3s",
+                cursor: "pointer",
+                outline: "none",
+              }}
+              type="button"
+              onClick={() => setShowReq((prev) => !prev)}
+              aria-expanded={showReq}
+            >
               Requisiti di sistema
             </button>
             <ul
@@ -112,7 +189,7 @@ const MainHome = () => {
                 display: showReq ? "block" : "none",
                 position: "absolute",
                 left: "50%",
-                transform: "translateX(-50%)",
+                transform: "translateX(-100%)",
                 marginTop: "4px",
                 zIndex: 100,
               }}
@@ -145,6 +222,23 @@ const MainHome = () => {
             </ul>
           </div>
         </div>
+        {/* Immagine globo sotto i tasti*/}
+        <img
+          src="/src/assets/media/IMG/GlobFullTrasparent.png"
+          alt="Globo"
+          style={{
+            marginTop: "32px",
+            width: "350px",
+            opacity: downloadBtnHover ? 1 : 0,
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto",
+            zIndex: 2,
+            position: "relative",
+            transform: downloadBtnHover ? "translateY(-260px)" : "translateY(-500px)",
+            transition: "transform 2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s",
+          }}
+        />
         {/* Immagine che sborda sotto la sezione */}
         <img
           src="src/assets/media/IMG/handTrasp.png"
@@ -301,9 +395,34 @@ const MainHome = () => {
         <div className="pegi-logo" style={{ marginBottom: "1rem" }}>
           <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" style={{ height: "130px" }} />
         </div>
-        <div className="newsletter-form" style={{ maxWidth: "350px", margin: "0 auto" }}>
-          <form>
-            <label htmlFor="newsletter-email" style={{ fontWeight: "bold", marginBottom: "0.5rem", display: "block" }}>
+        <div
+          className="newsletter-form"
+          style={{
+            maxWidth: "400px",
+            margin: "2rem auto 0 auto",
+            background: "rgba(43,43,42,0.18)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+            borderRadius: "18px",
+            boxShadow: "0 2px 12px #ffffff80",
+            padding: "2rem 2rem 1.5rem 2rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <form style={{ width: "100%" }}>
+            <label
+              htmlFor="newsletter-email"
+              style={{
+                fontWeight: "bold",
+                marginBottom: "1rem",
+                display: "block",
+                fontSize: "1.2rem",
+                color: "#FFD700",
+                letterSpacing: "1px",
+              }}
+            >
               Iscriviti per ricevere novità
             </label>
             <input
@@ -311,10 +430,35 @@ const MainHome = () => {
               id="newsletter-email"
               className="form-control"
               placeholder="Inserisci la tua email"
-              style={{ marginBottom: "0.5rem" }}
+              style={{
+                marginBottom: "1rem",
+                borderRadius: "12px",
+                border: "none",
+                padding: "0.8rem 1rem",
+                fontSize: "1.1rem",
+                boxShadow: "0 2px 8px #bfa10033",
+                background: "rgba(255,255,255,0.85)",
+                outline: "none",
+              }}
               required
             />
-            <button type="submit" className="btn btn-success" style={{ width: "100%" }}>
+            <button
+              type="submit"
+              style={{
+                width: "100%",
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
+                color: "#181817ff",
+                border: "none",
+                borderRadius: "12px",
+                boxShadow: "0 2px 8px #bfa10055",
+                padding: "0.7em 0",
+                letterSpacing: "1px",
+                cursor: "pointer",
+                transition: "background 0.3s, box-shadow 0.3s",
+              }}
+            >
               Iscriviti
             </button>
           </form>

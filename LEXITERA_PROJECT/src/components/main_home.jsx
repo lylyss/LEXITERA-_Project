@@ -22,6 +22,8 @@ const news = [
   { title: "Titolo Notizia 3", href: "#", img: "news3.jpg" },
 ];
 
+const newsCarouselImages = ["src/assets/media/IMG/floraoldpaper.png", "src/assets/media/IMG/lostlands.png", "src/assets/media/IMG/darkcity1.png"];
+
 const regionVideos = {
   LUXERTIA: "src/assets/media/VIDEO/SantMBG.mp4",
   GEMIDERA: "src/assets/media/VIDEO/CityMBG.mp4",
@@ -33,6 +35,15 @@ const MainHome = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
   const [downloadHover, setDownloadHover] = useState(false);
   const [downloadBtnHover, setDownloadBtnHover] = useState(false);
+  const [carouselIdx, setCarouselIdx] = useState(0);
+
+  // Carosello: avanti/indietro
+  const handlePrev = () => {
+    setCarouselIdx((prev) => (prev === 0 ? newsCarouselImages.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setCarouselIdx((prev) => (prev === newsCarouselImages.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="main-home-sections">
@@ -45,7 +56,7 @@ const MainHome = () => {
           background: "url(src/assets/media/IMG/globofull.png) center/cover no-repeat",
           boxShadow: "0 2px 12px #0005",
           position: "relative",
-          height: "500px",
+          height: "550px",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
@@ -261,29 +272,127 @@ const MainHome = () => {
         style={{
           margin: "2rem 0",
           display: "flex",
-          flexWrap: "wrap",
+          flexDirection: "column",
           alignItems: "center",
           gap: "2rem",
-          justifyContent: "center", // centra gli elementi
-          maxWidth: "900px", // restringi larghezza massima
+          justifyContent: "center",
+          maxWidth: "900px",
           marginLeft: "auto",
           marginRight: "auto",
+          minHeight: "500px",
         }}
       >
-        <div className="news-carousel" style={{ flex: "1 1 300px", minWidth: "250px" }}>
-          {/* Placeholder carousel */}
+        <div
+          className="news-carousel"
+          style={{
+            width: "100%",
+            maxWidth: "700px",
+            margin: "0 auto",
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {/* Titolo sopra immagine con bg blur */}
+          <div
+            style={{
+              position: "absolute",
+              top: "24px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "80%",
+              background: "rgba(43,43,42,0.45)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              borderRadius: "18px",
+              padding: "0.7rem 1.2rem",
+              zIndex: 3,
+              textAlign: "center",
+              color: "#FFD700",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+              letterSpacing: "1px",
+              boxShadow: "0 2px 12px #0005",
+            }}
+          >
+            {news[carouselIdx]?.title}
+          </div>
+          {/* Carosello immagini centrale */}
           <div
             style={{
               width: "100%",
-              height: "200px",
+              aspectRatio: "18 / 9",
               background: "#eee",
-              borderRadius: "12px",
+              borderRadius: "18px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              overflow: "hidden",
+              position: "relative",
+              marginTop: "60px",
+              marginBottom: "24px",
+              boxShadow: "0 2px 12px #0005",
             }}
           >
-            <span>Carosello immagini notizie</span>
+            <button
+              onClick={handlePrev}
+              style={{
+                position: "absolute",
+                left: "18px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.3)",
+                border: "none",
+                borderRadius: "50%",
+                color: "#FFD700",
+                fontSize: "2rem",
+                width: "48px",
+                height: "48px",
+                cursor: "pointer",
+                zIndex: 4,
+                boxShadow: "0 2px 8px #0005",
+              }}
+              aria-label="Precedente"
+            >
+              ‹
+            </button>
+            <img
+              src={newsCarouselImages[carouselIdx]}
+              alt={`news-carousel-${carouselIdx}`}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "18px",
+                transition: "opacity 0.4s",
+                aspectRatio: "18 / 9",
+                boxShadow: "0 2px 12px #0005",
+              }}
+            />
+            <button
+              onClick={handleNext}
+              style={{
+                position: "absolute",
+                right: "18px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.3)",
+                border: "none",
+                borderRadius: "50%",
+                color: "#FFD700",
+                fontSize: "2rem",
+                width: "48px",
+                height: "48px",
+                cursor: "pointer",
+                zIndex: 4,
+                boxShadow: "0 2px 8px #0005",
+              }}
+              aria-label="Successivo"
+            >
+              ›
+            </button>
           </div>
         </div>
         <div className="news-titles" style={{ flex: "1 1 300px", minWidth: "250px" }}>
@@ -395,74 +504,77 @@ const MainHome = () => {
         <div className="pegi-logo" style={{ marginBottom: "1rem" }}>
           <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" style={{ height: "130px" }} />
         </div>
-        <div
-          className="newsletter-form"
-          style={{
-            maxWidth: "400px",
-            margin: "2rem auto 0 auto",
-            background: "rgba(43,43,42,0.18)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            borderRadius: "18px",
-            boxShadow: "0 2px 12px #ffffff80",
-            padding: "2rem 2rem 1.5rem 2rem",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <form style={{ width: "100%" }}>
-            <label
-              htmlFor="newsletter-email"
-              style={{
-                fontWeight: "bold",
-                marginBottom: "1rem",
-                display: "block",
-                fontSize: "1.2rem",
-                color: "#FFD700",
-                letterSpacing: "1px",
-              }}
-            >
-              Iscriviti per ricevere novità
-            </label>
-            <input
-              type="email"
-              id="newsletter-email"
-              className="form-control"
-              placeholder="Inserisci la tua email"
-              style={{
-                marginBottom: "1rem",
-                borderRadius: "12px",
-                border: "none",
-                padding: "0.8rem 1rem",
-                fontSize: "1.1rem",
-                boxShadow: "0 2px 8px #bfa10033",
-                background: "rgba(255,255,255,0.85)",
-                outline: "none",
-              }}
-              required
-            />
-            <button
-              type="submit"
-              style={{
-                width: "100%",
-                fontSize: "1.2rem",
-                fontWeight: "bold",
-                background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
-                color: "#181817ff",
-                border: "none",
-                borderRadius: "12px",
-                boxShadow: "0 2px 8px #bfa10055",
-                padding: "0.7em 0",
-                letterSpacing: "1px",
-                cursor: "pointer",
-                transition: "background 0.3s, box-shadow 0.3s",
-              }}
-            >
-              Iscriviti
-            </button>
-          </form>
-        </div>
+
+        <>
+          <div
+            className="newsletter-form"
+            style={{
+              maxWidth: "400px",
+              margin: "2rem auto 0 auto",
+              background: "rgba(43,43,42,0.18)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              borderRadius: "18px",
+              boxShadow: "0 2px 12px #ffffff80",
+              padding: "2rem 2rem 1.5rem 2rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <form style={{ width: "100%" }}>
+              <label
+                htmlFor="newsletter-email"
+                style={{
+                  fontWeight: "bold",
+                  marginBottom: "1rem",
+                  display: "block",
+                  fontSize: "1.2rem",
+                  color: "#FFD700",
+                  letterSpacing: "1px",
+                }}
+              >
+                Iscriviti per ricevere novità
+              </label>
+              <input
+                type="email"
+                id="newsletter-email"
+                className="form-control"
+                placeholder="Inserisci la tua email"
+                style={{
+                  marginBottom: "1rem",
+                  borderRadius: "12px",
+                  border: "none",
+                  padding: "0.8rem 1rem",
+                  fontSize: "1.1rem",
+                  boxShadow: "0 2px 8px #bfa10033",
+                  background: "rgba(255,255,255,0.85)",
+                  outline: "none",
+                }}
+                required
+              />
+              <button
+                type="submit"
+                style={{
+                  width: "100%",
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
+                  color: "#181817ff",
+                  border: "none",
+                  borderRadius: "12px",
+                  boxShadow: "0 2px 8px #bfa10055",
+                  padding: "0.7em 0",
+                  letterSpacing: "1px",
+                  cursor: "pointer",
+                  transition: "background 0.3s, box-shadow 0.3s",
+                }}
+              >
+                Iscriviti
+              </button>
+            </form>
+          </div>
+        </>
       </section>
     </div>
   );

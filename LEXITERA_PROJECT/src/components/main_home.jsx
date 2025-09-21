@@ -275,8 +275,8 @@ const MainHome = () => {
             key={region.name}
             className="region-card"
             style={{
-              width: "1000px",
-              height: "180px",
+              width: "50%",
+              height: "200px",
               borderRadius: "5px",
               position: "relative",
               display: "flex",

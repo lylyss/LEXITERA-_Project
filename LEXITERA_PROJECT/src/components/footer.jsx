@@ -1,7 +1,8 @@
 import React from "react";
+import logo from "../assets/media/IMG/lexitera_LOGO.png";
 
 const footerStyle = {
-  background: "#222",
+  background: "#111111ff",
   color: "#fff",
   padding: "32px 0 16px 0",
   textAlign: "center",
@@ -18,7 +19,17 @@ const linkStyle = {
 
 const Footer = () => (
   <footer style={footerStyle}>
-    <div>
+    <img
+      src={logo}
+      alt="Lexitera Logo"
+      style={{
+        height: "100px",
+        marginRight: "8px",
+        verticalAlign: "middle",
+        filter: "drop-shadow(0 2px 8px #0008)",
+      }}
+    />
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "18px" }}>
       <a href="#privacy" style={linkStyle}>
         Privacy
       </a>

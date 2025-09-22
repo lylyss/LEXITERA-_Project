@@ -26,6 +26,7 @@
   .side-decor-left,
   .side-decor-right {
     width: 260px;
+    filter: opacity(0.6);
   }
 }
 @media (max-width: 900px) {

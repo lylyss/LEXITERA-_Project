@@ -5,7 +5,7 @@
   background: url(src/assets/media/IMG/globofull.png) center/cover no-repeat;
   box-shadow: 0 2px 12px #0005;
   position: relative;
-  height: 500px;
+  height: 600px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -14,26 +14,31 @@
 }
 
 /* Blur ai fianchi */
-.download-section-blur-left,
-.download-section-blur-right {
+.download-section-blur-left {
   position: absolute;
   top: 0;
-  height: 100%;
+  left: 0;
   width: 300px;
+  height: 100%;
   z-index: 2;
   pointer-events: none;
-}
-.download-section-blur-left {
-  left: 0;
   border-radius: 24px 0 0 24px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(18px);
+  background: rgba(43, 43, 42, 0);
 }
 .download-section-blur-right {
+  position: absolute;
+  top: 0;
   right: 0;
+  width: 300px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
   border-radius: 0 24px 24px 0;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(18px);
+  background: rgba(43, 43, 42, 0);
 }
 
 /* Box centrale blur */
@@ -46,22 +51,33 @@
   align-items: center;
   justify-content: center;
   width: 600px;
+  max-width: 100%;
+  min-width: 260px;
+  padding: 2rem 1rem;
   background: rgba(43, 43, 42, 0.25);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 24px;
   box-shadow: 0 2px 12px #0005;
-  padding: 2rem 0;
 }
 
-.download-section-centerbox h2 {
-  font-size: 2.5rem;
+/* Download button container */
+.download-btn-container {
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Download button */
 .download-btn {
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: linear-gradient(90deg, #ffd700 0%, #bfa100 100%);
+  background: linear-gradient(180deg, #ffd700 0%, #998305bb 100%);
   color: #181817ff;
   font-weight: bold;
   border: none;
@@ -74,6 +90,32 @@
   outline: none;
 }
 
+/* Download globe */
+.download-globe {
+  margin-top: 32px;
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2;
+  position: relative;
+  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s;
+}
+
+/* Download hand */
+.download-hand {
+  position: absolute;
+  left: 60%;
+  bottom: -250px;
+  transform: translateX(-100%);
+  width: 100%;
+  max-width: 450px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Requisiti di sistema button */
 .requirements-btn {
   font-size: 1.2rem;
   background: linear-gradient(90deg, #3d361270 0%, #bfa100 100%);
@@ -89,43 +131,58 @@
   outline: none;
 }
 
-/* Globo animato */
-.download-globe {
-  margin-top: 32px;
-  width: 350px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 2;
+/* Region card */
+.region-card {
+  width: 100%;
+  max-width: 800px;
+  min-width: 220px;
+  height: 200px;
+  border-radius: 15px;
   position: relative;
-  transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  box-shadow: 0 2px 24px #0005;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
 }
 
-/* Form newsletter moderno */
+/* PEGI logo */
+.pegi-logo img {
+  height: 150px;
+  max-width: 100%;
+  width: auto;
+}
+
+/* Newsletter form */
 .newsletter-form {
-  max-width: 400px;
-  margin: 2rem auto 0 auto;
+  width: 450px;
   background: rgba(43, 43, 42, 0.18);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: 18px;
+  border-radius: 12px;
   box-shadow: 0 2px 12px #ffffff80;
-  padding: 2rem 2rem 1.5rem 2rem;
+  padding: 2rem 1rem 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
 }
-
-.newsletter-form label {
+.newsletter-label {
   font-weight: bold;
   margin-bottom: 1rem;
   display: block;
   font-size: 1.2rem;
-  color: #ffd700;
+  color: #000000ff;
   letter-spacing: 1px;
 }
-
-.newsletter-form input[type="email"] {
+.newsletter-input {
+  width: 350px;
   margin-bottom: 1rem;
   border-radius: 12px;
   border: none;
@@ -135,9 +192,8 @@
   background: rgba(255, 255, 255, 0.85);
   outline: none;
 }
-
-.newsletter-form button[type="submit"] {
-  width: 100%;
+.newsletter-submit {
+  width: 382px;
   font-size: 1.2rem;
   font-weight: bold;
   background: linear-gradient(90deg, #ffd700 0%, #bfa100 100%);
@@ -149,4 +205,359 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Social icons */
+.social-icons {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  background: rgba(43, 43, 42, 0.12);
+  padding: 1rem 0;
+  border-radius: 12px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  width: 100%;
+}
+
+/* Dropdown menu stile requisiti di sistema */
+.dropdown-menu {
+  min-width: 400px;
+  text-align: left;
+  position: fixed;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  margin-top: 0;
+  z-index: 100;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #cccccc54;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  padding: 10px 25px;
+  background: rgba(90, 157, 161, 0.9);
+  transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  list-style: none;
+}
+
+/* Dropdown voce testo */
+.dropdown-item-text {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #000000ff;
+  padding: 6px 0;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.dropdown-item-text i {
+  margin-right: 10px;
+  color: #094f88ff;
+}
+
+/* Responsive download section */
+@media (max-width: 900px) {
+  .download-section {
+    height: 400px;
+    padding: 0 0.5rem;
+  }
+  .download-section-centerbox {
+    width: 95vw;
+    min-width: 180px;
+    padding: 1.2rem 0.5rem;
+  }
+  .download-section-blur-left,
+  .download-section-blur-right {
+    width: 180px;
+  }
+  .download-globe {
+    width: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .download-section {
+    height: 320px;
+    padding: 0 0.2rem;
+  }
+  .download-section-centerbox {
+    width: 99vw;
+    min-width: 120px;
+    padding: 0.7rem 0.2rem;
+    border-radius: 12px;
+  }
+  .download-section-blur-left,
+  .download-section-blur-right {
+    width: 80px;
+    border-radius: 12px 0 0 12px;
+  }
+  .download-globe {
+    width: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .download-section {
+    height: 220px;
+    padding: 0 0.1rem;
+  }
+  .download-section-centerbox {
+    width: 100vw;
+    min-width: 60px;
+    padding: 0.3rem 0.1rem;
+    border-radius: 8px;
+  }
+  .download-section-blur-left,
+  .download-section-blur-right {
+    width: 40px;
+    border-radius: 8px 0 0 8px;
+  }
+  .download-globe {
+    width: 60px;
+  }
+}
+
+/* Responsive region cards */
+.region-card {
+  width: 100%;
+  max-width: 800px;
+  min-width: 220px;
+  height: 200px;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 24px #0005;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .region-card {
+    max-width: 95vw;
+    height: 140px;
+    border-radius: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .region-card {
+    max-width: 99vw;
+    height: 90px;
+    border-radius: 7px;
+  }
+}
+@media (max-width: 400px) {
+  .region-card {
+    max-width: 100vw;
+    height: 50px;
+    border-radius: 4px;
+  }
+}
+
+/* Region card section: centra le card */
+.regions-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra verticalmente */
+  width: 100%;
+}
+
+/* Region card: centra il contenuto orizzontalmente */
+.region-card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive newsletter form */
+.newsletter-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem 1rem 1.5rem 1rem;
+  border-radius: 18px;
+}
+@media (max-width: 900px) {
+  .newsletter-form {
+    max-width: 95vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    border-radius: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .newsletter-form {
+    max-width: 99vw;
+    padding: 0.7rem 0.2rem 0.5rem 0.2rem;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 400px) {
+  .newsletter-form {
+    max-width: 100vw;
+    padding: 0.3rem 0.1rem 0.2rem 0.1rem;
+    border-radius: 4px;
+  }
+}
+
+/* Responsive social icons */
+.social-icons {
+  font-size: clamp(2rem, 5vw, 3rem);
+  width: 100%;
+  gap: 18px;
+  padding: 1rem 0;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: rgba(43, 43, 42, 0.12);
+}
+@media (max-width: 900px) {
+  .social-icons {
+    gap: 10px;
+    font-size: 2rem;
+    border-radius: 8px;
+    padding: 0.7rem 0;
+  }
+}
+@media (max-width: 600px) {
+  .social-icons {
+    gap: 6px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 0.4rem 0;
+  }
+}
+@media (max-width: 400px) {
+  .social-icons {
+    gap: 2px;
+    font-size: 0.8rem;
+    border-radius: 2px;
+    padding: 0.2rem 0;
+  }
+}
+
+/* Responsive PEGI logo */
+.pegi-logo img {
+  height: 80px;
+  max-width: 100%;
+  width: auto;
+}
+@media (max-width: 900px) {
+  .pegi-logo img {
+    height: 50px;
+  }
+}
+@media (max-width: 600px) {
+  .pegi-logo img {
+    height: 30px;
+  }
+}
+@media (max-width: 400px) {
+  .pegi-logo img {
+    height: 18px;
+  }
+}
+
+/* Responsive h2 */
+.main-section h2 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  padding: 0.5rem 0;
+}
+@media (max-width: 600px) {
+  .main-section h2 {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+  }
+}
+@media (max-width: 400px) {
+  .main-section h2 {
+    font-size: 0.8rem;
+    padding: 0.1rem 0;
+  }
+}
+
+/* Responsive input and button in newsletter */
+.newsletter-form input[type="email"] {
+  font-size: 1rem;
+  padding: 0.5rem 0.7rem;
+}
+.newsletter-form button[type="submit"] {
+  font-size: 1rem;
+  padding: 0.5em 0;
+}
+
+/* Responsive dropdown menu */
+.dropdown-menu {
+  min-width: 400px;
+}
+@media (max-width: 900px) {
+  .dropdown-menu {
+    min-width: 260px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 600px) {
+  .dropdown-menu {
+    min-width: 160px;
+    padding: 4px 6px;
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 400px) {
+  .dropdown-menu {
+    min-width: 80px;
+    padding: 2px 3px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Responsive hand image */
+.download-section img[alt="Hand"] {
+  width: 100%;
+  max-width: 450px;
+}
+@media (max-width: 900px) {
+  .download-section img[alt="Hand"] {
+    max-width: 260px;
+  }
+}
+@media (max-width: 600px) {
+  .download-section img[alt="Hand"] {
+    max-width: 80px;
+  }
+}
+@media (max-width: 400px) {
+  .download-section img[alt="Hand"] {
+    max-width: 40px;
+  }
+}
+
+/* Responsive globe image */
+.download-globe {
+  width: 100%;
+  max-width: 350px;
+}
+@media (max-width: 900px) {
+  .download-globe {
+    max-width: 220px;
+  }
+}
+@media (max-width: 600px) {
+  .download-globe {
+    max-width: 80px;
+  }
+}
+@media (max-width: 400px) {
+  .download-globe {
+    max-width: 40px;
+  }
 }

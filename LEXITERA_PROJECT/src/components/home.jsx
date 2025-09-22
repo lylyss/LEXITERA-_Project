@@ -3,6 +3,7 @@ import CustomNavbar from "./navbar";
 import Footer from "./footer";
 import MainHome from "./main_home";
 import { Container } from "react-bootstrap";
+import "../css/home.css";
 
 const Home = () => {
   return (
@@ -19,34 +20,9 @@ const Home = () => {
         position: "relative",
       }}
     >
-      {/* Div decorativi ai lati*/}
-      <div
-        style={{
-          position: "fixed",
-          top: -35,
-          right: 0,
-          width: "400px",
-          height: "100vh",
-          background: "url('src/assets/media/animal/feral.trasp.PNG') left center/contain no-repeat",
-
-          zIndex: 10,
-          pointerEvents: "none",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        style={{
-          position: "fixed",
-          top: -35,
-          left: 0,
-          width: "400px",
-          height: "100vh",
-          background: "url('src/assets/media/animal/gigant_saur.trasp.PNG') right center/contain no-repeat",
-          zIndex: 10,
-          pointerEvents: "none",
-        }}
-        aria-hidden="true"
-      />
+      {/* Div decorativi ai lati */}
+      <div className="side-decor-right" aria-hidden="true" />
+      <div className="side-decor-left" aria-hidden="true" />
       {/* Spazio per spostare la navbar più in basso */}
       <div style={{ height: "35px" }}></div>
       <CustomNavbar expand="lg" fixed="top" style={{ zIndex: 4 }} />

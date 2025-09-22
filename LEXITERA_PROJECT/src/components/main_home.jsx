@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useNavigate } from "react-router-dom";
+import "../css/main_home.css";
+
 // Placeholder immagini e icone
 const socialIcons = [
   { href: "#", label: "X", icon: "fa-brands fa-x-twitter" },
@@ -31,25 +33,10 @@ const MainHome = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="main-home-sections" style={{ width: "100%" }}>
+    <div className="main-home-sections">
       {/* Sezione 1: Scarica gioco */}
       <section
         className="main-section download-section metamorphous-regular"
-        style={{
-          margin: "2rem 0",
-          textAlign: "center",
-          background: "url(src/assets/media/IMG/globofull.png) center/cover no-repeat",
-          boxShadow: "0 2px 12px #0005",
-          position: "relative",
-          height: "550px",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          minHeight: "400px",
-        }}
         onMouseEnter={() => setDownloadHover(true)}
         onMouseLeave={() => setDownloadHover(false)}
       >
@@ -71,138 +58,26 @@ const MainHome = () => {
             }}
           />
         )}
-        <div style={{ position: "absolute", top: 0, left: 0, width: "300px", height: "100%", zIndex: 2, pointerEvents: "none" }}>
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "rgba(43, 43, 42, 0)",
-              backdropFilter: "blur(5px)",
-              WebkitBackdropFilter: "blur(18px)",
-              borderRadius: "24px 0 0 24px",
-            }}
-          />
-        </div>
-        <div style={{ position: "absolute", top: 0, right: 0, width: "300px", height: "100%", zIndex: 2, pointerEvents: "none" }}>
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "rgba(43, 43, 42, 0)",
-              backdropFilter: "blur(5px)",
-              WebkitBackdropFilter: "blur(18px)",
-              borderRadius: "0 24px 24px 0",
-            }}
-          />
-        </div>
-        <div
-          style={{
-            marginTop: "350px",
-            position: "relative",
-            zIndex: 3,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "600px",
-            maxWidth: "100%",
-            minWidth: "260px",
-            padding: "2rem 1rem",
-            background: "rgba(43,43,42,0.25)",
-            backdropFilter: "blur(2px)",
-            WebkitBackdropFilter: "blur(12px)",
-            borderRadius: "24px",
-            boxShadow: "0 2px 12px #0005",
-          }}
-        >
-          <h2 style={{ fontSize: "2.5rem" }}>Scarica e Gioca</h2>
-          <div
-            style={{
-              position: "relative",
-              width: "fit-content",
-              marginLeft: "auto",
-              marginRight: "auto",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <button
-              className="download-btn"
-              style={{
-                fontSize: "2rem",
-                marginBottom: "1rem",
-                background: "linear-gradient(180deg, #FFD700 0%, #998305bb 100%)",
-                color: "#181817ff",
-                fontWeight: "bold",
-                border: "none",
-                borderRadius: "18px",
-                boxShadow: "0 4px 16px #bfa10088",
-                padding: "0.6em 2.2em",
-                letterSpacing: "2px",
-                transition: "background 0.3s, box-shadow 0.3s",
-                cursor: "pointer",
-                outline: "none",
-              }}
-              onMouseEnter={() => setDownloadBtnHover(true)}
-              onMouseLeave={() => setDownloadBtnHover(false)}
-            >
+        <div className="download-section-blur-left" />
+        <div className="download-section-blur-right" />
+        <div className="download-section-centerbox">
+          <h2>Scarica e Gioca</h2>
+          <div className="download-btn-container">
+            <button className="download-btn" onMouseEnter={() => setDownloadBtnHover(true)} onMouseLeave={() => setDownloadBtnHover(false)}>
               Download
             </button>
           </div>
-          <div
-            className="dropdown mt-2"
-            style={{
-              display: "inline-block",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
-            <button
-              className="requirements-btn"
-              style={{
-                fontSize: "1.2rem",
-                background: "linear-gradient(90deg, #3d361270 0%, #bfa100 100%)",
-                color: "#fff",
-                fontWeight: "bold",
-                border: "none",
-                borderRadius: "12px",
-                boxShadow: "0 2px 8px #bfa10055",
-                padding: "0.5em 1.5em",
-                letterSpacing: "1px",
-                transition: "background 0.3s, box-shadow 0.3s",
-                cursor: "pointer",
-                outline: "none",
-              }}
-              type="button"
-              onClick={() => setShowReq((prev) => !prev)}
-              aria-expanded={showReq}
-            >
+          <div className="dropdown mt-2">
+            <button className="requirements-btn" type="button" onClick={() => setShowReq((prev) => !prev)} aria-expanded={showReq}>
               Requisiti di sistema
             </button>
             <ul
               className="dropdown-menu"
               style={{
-                minWidth: "400px",
-                textAlign: "left",
-                display: "block",
-                position: "fixed",
-                top: "120%",
                 left: showReq ? "50%" : "0",
                 transform: showReq ? "translate(-50%, -50%) scale(1)" : "translate(0, -50%) scale(0.8)",
                 opacity: showReq ? 1 : 0,
                 pointerEvents: showReq ? "auto" : "none",
-                marginTop: "0",
-                zIndex: 100,
-                fontFamily: "Arial, Helvetica, sans-serif",
-                border: "1px solid #cccccc54",
-                borderRadius: "8px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.7)",
-                padding: "10px 25px",
-                background: "rgba(90, 157, 161, 0.9)",
-                transition: "left 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
-                listStyle: "none", // rimuove i puntini
               }}
             >
               <li>
@@ -238,91 +113,30 @@ const MainHome = () => {
             </ul>
           </div>
         </div>
-        {/* Immagine globo sotto i tasti*/}
         <img
           src="/src/assets/media/IMG/GlobFullTrasparent.png"
           alt="Globo"
+          className="download-globe"
           style={{
-            marginTop: "32px",
-            width: "100%",
-            maxWidth: "350px",
             opacity: downloadBtnHover ? 1 : 0,
-            display: "block",
-            marginLeft: "auto",
-            marginRight: "auto",
-            zIndex: 2,
-            position: "relative",
             transform: downloadBtnHover ? "translateY(-260px)" : "translateY(-500px)",
-            transition: "transform 2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s",
           }}
         />
-        {/* Immagine che sborda sotto la sezione */}
-        <img
-          src="src/assets/media/IMG/handTrasp.png"
-          alt="Hand"
-          style={{
-            position: "absolute",
-            left: "60%",
-            bottom: "-250px",
-            transform: "translateX(-100%)",
-            width: "100%",
-            maxWidth: "450px",
-            zIndex: 1,
-            pointerEvents: "none",
-          }}
-        />
+        <img src="src/assets/media/IMG/handTrasp.png" alt="Hand" className="download-hand" />
       </section>
       {/* Sezione 2: Regioni del gioco */}
-      <section
-        className="main-section regions-section metamorphous-regular"
-        style={{
-          margin: "2rem 0",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        <h2
-          style={{
-            color: "#181817ff",
-            fontWeight: "bold",
-            marginBottom: "1.5rem",
-            alignSelf: "flex-start",
-            textAlign: "center",
-            width: "100%",
-            fontSize: "clamp(1.2rem, 2vw, 2rem)",
-            background: "rgba(43, 43, 42, 0.15)",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            padding: "0.5rem 0",
-          }}
-        >
-          Regioni di Lexitera
-        </h2>
+      <section className="main-section regions-section metamorphous-regular">
+        <h2>Regioni di Lexitera</h2>
         {regions.map((region) => (
           <div
             key={region.name}
             className="region-card"
-            style={{
-              width: "100%",
-              maxWidth: "800px",
-              minWidth: "220px",
-              height: "200px",
-              borderRadius: "15px",
-              position: "relative",
-              display: "flex",
-              alignItems: "flex-end",
-              justifyContent: "flex-start",
-              boxShadow: "0 2px 24px #0005",
-              marginBottom: "1.5rem",
-              overflow: "hidden",
-              background: `url(src/assets/media/IMG/${region.img}) center/cover no-repeat`,
-              cursor: "pointer",
-            }}
             onMouseEnter={() => setHoveredRegion(region.name)}
             onMouseLeave={() => setHoveredRegion(null)}
             onClick={() => navigate(`/region/${region.name.toLowerCase()}`)}
+            style={{
+              background: `url(src/assets/media/IMG/${region.img}) center/cover no-repeat`,
+            }}
           >
             {/* Video overlay on hover */}
             {hoveredRegion === region.name && (
@@ -363,119 +177,24 @@ const MainHome = () => {
           </div>
         ))}
       </section>
-
       {/* Sezione 3: Social, PEGI, Form */}
-      <section
-        className="main-section social-section metamorphous-regular"
-        style={{
-          margin: "2rem 0",
-          textAlign: "center",
-          width: "100%",
-
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <div className="pegi-logo" style={{ marginBottom: "1rem" }}>
-          <img
-            src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg"
-            alt="PEGI 16"
-            style={{
-              height: "150px",
-              maxWidth: "100%",
-              width: "auto",
-            }}
-          />
+      <section className="main-section social-section metamorphous-regular">
+        <div className="pegi-logo">
+          <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" />
         </div>
-
         <>
-          <div
-            className="newsletter-form"
-            style={{
-              width: "450px",
-              background: "rgba(43,43,42,0.18)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              borderRadius: "12px",
-              boxShadow: "0 2px 12px #ffffff80",
-              padding: "2rem 1rem 1.5rem 1rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginBottom: "1.5rem",
-            }}
-          >
+          <div className="newsletter-form">
             <form style={{ width: "100%" }}>
-              <label
-                htmlFor="newsletter-email"
-                style={{
-                  fontWeight: "bold",
-                  marginBottom: "1rem",
-                  display: "block",
-                  fontSize: "1.2rem",
-                  color: "#000000ff",
-                  letterSpacing: "1px",
-                }}
-              >
+              <label htmlFor="newsletter-email" className="newsletter-label">
                 Iscriviti per ricevere novità
               </label>
-              <input
-                type="email"
-                id="newsletter-email"
-                className="form-control"
-                placeholder="Inserisci la tua @ email"
-                style={{
-                  width: "350px",
-                  marginBottom: "1rem",
-                  borderRadius: "12px",
-                  border: "none",
-                  padding: "0.8rem 1rem",
-                  fontSize: "1.1rem",
-                  boxShadow: "0 2px 8px #bfa10033",
-                  background: "rgba(255,255,255,0.85)",
-                  outline: "none",
-                }}
-                required
-              />
-              <button
-                type="submit"
-                style={{
-                  width: "382px",
-                  fontSize: "1.2rem",
-                  fontWeight: "bold",
-                  background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
-                  color: "#181817ff",
-                  border: "none",
-                  borderRadius: "12px",
-                  boxShadow: "0 2px 8px #bfa10055",
-                  padding: "0.7em 0",
-                  letterSpacing: "1px",
-                  cursor: "pointer",
-                  transition: "background 0.3s, box-shadow 0.3s",
-                }}
-              >
+              <input type="email" id="newsletter-email" className="form-control newsletter-input" placeholder="Inserisci la tua @ email" required />
+              <button type="submit" className="newsletter-submit">
                 Iscriviti
               </button>
             </form>
           </div>
-          <div
-            className="social-icons"
-            style={{
-              marginTop: "1.5rem",
-              marginBottom: "1.5rem",
-              display: "flex",
-              justifyContent: "center",
-              gap: "18px",
-              flexWrap: "wrap",
-              background: "rgba(43,43,42,0.12)",
-              padding: "1rem 0",
-              borderRadius: "12px",
-              fontSize: "clamp(2rem, 5vw, 3rem)",
-              width: "100%",
-            }}
-          >
+          <div className="social-icons">
             {socialIcons.map((icon) => (
               <a key={icon.label} href={icon.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: "3rem", color: "#111111ff" }}>
                 <i className={icon.icon}></i>

@@ -1,0 +1,42 @@
+/* Decorativi ai lati */
+.side-decor-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background: url("src/assets/media/animal/gigant_saur.trasp.PNG") right center/contain no-repeat;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.side-decor-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: url("src/assets/media/animal/feral.trasp.PNG") left center/contain no-repeat;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Responsive decorativi ai lati */
+@media (max-width: 1200px) {
+  .side-decor-left,
+  .side-decor-right {
+    width: 260px;
+  }
+}
+@media (max-width: 900px) {
+  .side-decor-left,
+  .side-decor-right {
+    width: 200px;
+  }
+}
+@media (max-width: 800px) {
+  .side-decor-left,
+  .side-decor-right {
+    display: none;
+  }
+}

@@ -127,7 +127,7 @@ const MainHome = () => {
               style={{
                 fontSize: "2rem",
                 marginBottom: "1rem",
-                background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
+                background: "linear-gradient(180deg, #FFD700 0%, #998305bb 100%)",
                 color: "#181817ff",
                 fontWeight: "bold",
                 border: "none",
@@ -178,38 +178,53 @@ const MainHome = () => {
             <ul
               className="dropdown-menu"
               style={{
-                minWidth: "250px",
+                minWidth: "400px",
                 textAlign: "left",
-                display: showReq ? "block" : "none",
-                position: "absolute",
-                left: "50%",
-                transform: "translateX(-100%)",
-                marginTop: "4px",
+                display: "block",
+                position: "fixed",
+                top: "120%",
+                left: showReq ? "50%" : "0",
+                transform: showReq ? "translate(-50%, -50%) scale(1)" : "translate(0, -50%) scale(0.8)",
+                opacity: showReq ? 1 : 0,
+                pointerEvents: showReq ? "auto" : "none",
+                marginTop: "0",
                 zIndex: 100,
+                fontFamily: "Arial, Helvetica, sans-serif",
+                border: "1px solid #cccccc54",
+                borderRadius: "8px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.7)",
+                padding: "10px 25px",
+                background: "rgba(90, 157, 161, 0.9)",
+                transition: "left 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
               }}
             >
               <li>
                 <span className="dropdown-item-text">
+                  <i className="fa-solid fa-desktop" style={{ marginRight: "10px", color: "#094f88ff" }}></i>
                   <b>OS:</b> Windows 10/11, MacOS 12+
                 </span>
               </li>
               <li>
                 <span className="dropdown-item-text">
-                  <b>CPU:</b> Intel i5/Ryzen 5 o superiore
+                  <i className="fa-solid fa-microchip" style={{ marginRight: "10px", color: "#094f88ff" }}></i>
+                  <b>CPU:</b> Intel i5 / Ryzen 5 o superiore
                 </span>
               </li>
               <li>
                 <span className="dropdown-item-text">
+                  <i className="fa-solid fa-memory" style={{ marginRight: "10px", color: "#094f88ff" }}></i>
                   <b>RAM:</b> 8GB minimo
                 </span>
               </li>
               <li>
                 <span className="dropdown-item-text">
-                  <b>GPU:</b> GTX 1050/RX 560 o superiore
+                  <i className="fa-solid fa-video" style={{ marginRight: "10px", color: "#094f88ff" }}></i>
+                  <b>GPU:</b> GTX 1050 / RX 560 o superiore
                 </span>
               </li>
               <li>
                 <span className="dropdown-item-text">
+                  <i className="fa-solid fa-hard-drive" style={{ marginRight: "10px", color: "#094f88ff" }}></i>
                   <b>Spazio:</b> 20GB libero
                 </span>
               </li>
@@ -408,7 +423,17 @@ const MainHome = () => {
           </div>
           <div
             className="social-icons"
-            style={{ marginTop: "1.5rem", marginBottom: "1.5rem", display: "flex", justifyContent: "center", gap: "18px", flexWrap: "wrap" }}
+            style={{
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+              display: "flex",
+              justifyContent: "center",
+              gap: "18px",
+              flexWrap: "wrap",
+              background: "rgba(43,43,42,0.12)",
+              padding: "1rem 0",
+              borderRadius: "12px",
+            }}
           >
             {socialIcons.map((icon) => (
               <a key={icon.label} href={icon.href} target="_blank" rel="noopener noreferrer" style={{ fontSize: "3rem", color: "#111111ff" }}>

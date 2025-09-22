@@ -19,6 +19,34 @@ const Home = () => {
         position: "relative",
       }}
     >
+      {/* Div decorativi ai lati*/}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          right: 0,
+          width: "400px",
+          height: "100vh",
+          background: "url('src/assets/media/animal/feral.trasp.PNG') left center/contain no-repeat",
+
+          zIndex: 10,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "400px",
+          height: "100vh",
+          background: "url('src/assets/media/animal/gigant_saur.trasp.PNG') right center/contain no-repeat",
+          zIndex: 10,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      />
       {/* Spazio per spostare la navbar più in basso */}
       <div style={{ height: "35px" }}></div>
       <CustomNavbar expand="lg" fixed="top" />

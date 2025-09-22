@@ -292,7 +292,7 @@ const MainHome = () => {
             style={{
               width: "50%",
               height: "200px",
-              borderRadius: "5px",
+              borderRadius: "15px",
               position: "relative",
               display: "flex",
               alignItems: "flex-end",

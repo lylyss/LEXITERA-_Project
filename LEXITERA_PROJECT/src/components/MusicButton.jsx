@@ -1,5 +1,19 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// Icona custom per audio OFF
+function StreamlineMusicNoteOff2Solid(props) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 14 14" {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M.22 1.28A.75.75 0 0 1 1.28.22L3.9 2.838c.158-.187.37-.322.607-.387L12.083.35a1.217 1.217 0 0 1 1.534 1.168v7.185q.006.087.006.174c0 .997-.592 1.855-1.443 2.243l1.6 1.6a.75.75 0 1 1-1.06 1.061zm8.697 6.577A2.463 2.463 0 0 1 12.13 6.61V4.153L6.731 5.67zM3.61 9.06V6.243L5.097 7.73v3.42q.006.086.006.174A2.463 2.463 0 1 1 3.609 9.06"
+        clipRule="evenodd"
+      ></path>
+    </svg>
+  );
+}
+
 const MusicButton = () => {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(() => {
@@ -41,21 +55,16 @@ const MusicButton = () => {
     <>
       <button onClick={toggleAudio} className="music-button" aria-label={playing ? "Pausa musica" : "Riproduci musica"}>
         {playing ? (
-          // Chiave di sol
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="25" height="25">
+          // Icona custom per musica accesa
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30">
             <path
-              d="M492.5 104.3L268.5 154.1C261.2 155.7 256 162.2 256 169.7L256 244.1L512 187.2L512 119.9C512 109.7 502.5 102.1 492.5 104.3zM512 340.4L512 220L256 276.9L256 464.1C256 508.3 213 544.1 160 544.1C107 544.1 64 508.3 64 464.1C64 419.9 107 384.1 160 384.1C184.6 384.1 207 391.8 224 404.5L224 169.8C224 147.3 239.6 127.8 261.6 122.9L485.6 73C515.6 66.3 544 89.1 544 119.9L544 400C544 444.2 501 480 448 480C395 480 352 444.2 352 400C352 355.8 395 320 448 320C472.6 320 495 327.7 512 340.4zM512 400C512 373.5 483.3 352 448 352C412.7 352 384 373.5 384 400C384 426.5 412.7 448 448 448C483.3 448 512 426.5 512 400zM224 464C224 437.5 195.3 416 160 416C124.7 416 96 437.5 96 464C96 490.5 124.7 512 160 512C195.3 512 224 490.5 224 464z"
-              fill="#000000ff"
+              d="M532 71C539.6 77.1 544 86.3 544 96L544 400C544 444.2 501 480 448 480C395 480 352 444.2 352 400C352 355.8 395 320 448 320C459.2 320 470 321.6 480 324.6L480 207.9L256 257.7L256 464C256 508.2 213 544 160 544C107 544 64 508.2 64 464C64 419.8 107 384 160 384C171.2 384 182 385.6 192 388.6L192 160C192 145 202.4 132 217.1 128.8L505.1 64.8C514.6 62.7 524.5 65 532.1 71.1z"
+              fill="#ffffffff"
             />
           </svg>
         ) : (
-          // Tasto pausa
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="25" height="25">
-            <path
-              d="M320 112C434.9 112 528 205.1 528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM288 248C288 234.7 277.3 224 264 224C250.7 224 240 234.7 240 248L240 392C240 405.3 250.7 416 264 416C277.3 416 288 405.3 288 392L288 248zM400 248C400 234.7 389.3 224 376 224C362.7 224 352 234.7 352 248L352 392C352 405.3 362.7 416 376 416C389.3 416 400 405.3 400 392L400 248z"
-              fill="#ffd650ff"
-            />
-          </svg>
+          // Icona custom audio OFF
+          <StreamlineMusicNoteOff2Solid style={{ color: "#ffffffff" }} />
         )}
       </button>
       <audio ref={audioRef} src="src/assets/media/audio/videoplayback.mp3" autoPlay loop style={{ display: "none" }} />

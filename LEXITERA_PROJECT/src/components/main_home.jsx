@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate } from "react-router-dom";
 // Placeholder immagini e icone
 const socialIcons = [
   { href: "#", label: "X", icon: "fa-brands fa-x-twitter" },
@@ -27,9 +28,10 @@ const MainHome = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
   const [downloadHover, setDownloadHover] = useState(false);
   const [downloadBtnHover, setDownloadBtnHover] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <div className="main-home-sections">
+    <div className="main-home-sections" style={{ width: "100%" }}>
       {/* Sezione 1: Scarica gioco */}
       <section
         className="main-section download-section metamorphous-regular"
@@ -45,6 +47,8 @@ const MainHome = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          width: "100%",
+          minHeight: "400px",
         }}
         onMouseEnter={() => setDownloadHover(true)}
         onMouseLeave={() => setDownloadHover(false)}
@@ -101,12 +105,14 @@ const MainHome = () => {
             alignItems: "center",
             justifyContent: "center",
             width: "600px",
+            maxWidth: "100%",
+            minWidth: "260px",
+            padding: "2rem 1rem",
             background: "rgba(43,43,42,0.25)",
             backdropFilter: "blur(2px)",
             WebkitBackdropFilter: "blur(12px)",
             borderRadius: "24px",
             boxShadow: "0 2px 12px #0005",
-            padding: "2rem 0",
           }}
         >
           <h2 style={{ fontSize: "2.5rem" }}>Scarica e Gioca</h2>
@@ -196,6 +202,7 @@ const MainHome = () => {
                 padding: "10px 25px",
                 background: "rgba(90, 157, 161, 0.9)",
                 transition: "left 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+                listStyle: "none", // rimuove i puntini
               }}
             >
               <li>
@@ -237,7 +244,8 @@ const MainHome = () => {
           alt="Globo"
           style={{
             marginTop: "32px",
-            width: "350px",
+            width: "100%",
+            maxWidth: "350px",
             opacity: downloadBtnHover ? 1 : 0,
             display: "block",
             marginLeft: "auto",
@@ -257,16 +265,23 @@ const MainHome = () => {
             left: "60%",
             bottom: "-250px",
             transform: "translateX(-100%)",
-            width: "450px",
+            width: "100%",
+            maxWidth: "450px",
             zIndex: 1,
             pointerEvents: "none",
           }}
         />
       </section>
-      {/* Sezione 3: Regioni del gioco */}
+      {/* Sezione 2: Regioni del gioco */}
       <section
         className="main-section regions-section metamorphous-regular"
-        style={{ margin: "2rem 0", display: "flex", flexDirection: "column", alignItems: "center" }}
+        style={{
+          margin: "2rem 0",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
       >
         <h2
           style={{
@@ -276,28 +291,30 @@ const MainHome = () => {
             alignSelf: "flex-start",
             textAlign: "center",
             width: "100%",
-            fontSize: "2rem",
+            fontSize: "clamp(1.2rem, 2vw, 2rem)",
             background: "rgba(43, 43, 42, 0.15)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             padding: "0.5rem 0",
           }}
         >
-          REGIONI
+          Regioni di Lexitera
         </h2>
         {regions.map((region) => (
           <div
             key={region.name}
             className="region-card"
             style={{
-              width: "50%",
+              width: "100%",
+              maxWidth: "800px",
+              minWidth: "220px",
               height: "200px",
               borderRadius: "15px",
               position: "relative",
               display: "flex",
               alignItems: "flex-end",
               justifyContent: "flex-start",
-              boxShadow: "0 2px 12px #0005",
+              boxShadow: "0 2px 24px #0005",
               marginBottom: "1.5rem",
               overflow: "hidden",
               background: `url(src/assets/media/IMG/${region.img}) center/cover no-repeat`,
@@ -305,6 +322,7 @@ const MainHome = () => {
             }}
             onMouseEnter={() => setHoveredRegion(region.name)}
             onMouseLeave={() => setHoveredRegion(null)}
+            onClick={() => navigate(`/region/${region.name.toLowerCase()}`)}
           >
             {/* Video overlay on hover */}
             {hoveredRegion === region.name && (
@@ -346,27 +364,47 @@ const MainHome = () => {
         ))}
       </section>
 
-      {/* Sezione 4: Social, PEGI, Form */}
-      <section className="main-section social-section metamorphous-regular" style={{ margin: "2rem 0", textAlign: "center" }}>
+      {/* Sezione 3: Social, PEGI, Form */}
+      <section
+        className="main-section social-section metamorphous-regular"
+        style={{
+          margin: "2rem 0",
+          textAlign: "center",
+          width: "100%",
+
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
         <div className="pegi-logo" style={{ marginBottom: "1rem" }}>
-          <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" style={{ height: "130px" }} />
+          <img
+            src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg"
+            alt="PEGI 16"
+            style={{
+              height: "150px",
+              maxWidth: "100%",
+              width: "auto",
+            }}
+          />
         </div>
 
         <>
           <div
             className="newsletter-form"
             style={{
-              maxWidth: "400px",
-              margin: "2rem auto 0 auto",
+              width: "450px",
               background: "rgba(43,43,42,0.18)",
               backdropFilter: "blur(8px)",
               WebkitBackdropFilter: "blur(8px)",
               borderRadius: "12px",
               boxShadow: "0 2px 12px #ffffff80",
-              padding: "2rem 2rem 1.5rem 2rem",
+              padding: "2rem 1rem 1.5rem 1rem",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              marginLeft: "auto",
+              marginRight: "auto",
+              marginBottom: "1.5rem",
             }}
           >
             <form style={{ width: "100%" }}>
@@ -377,7 +415,7 @@ const MainHome = () => {
                   marginBottom: "1rem",
                   display: "block",
                   fontSize: "1.2rem",
-                  color: "#FFD700",
+                  color: "#000000ff",
                   letterSpacing: "1px",
                 }}
               >
@@ -387,8 +425,9 @@ const MainHome = () => {
                 type="email"
                 id="newsletter-email"
                 className="form-control"
-                placeholder="Inserisci la tua email"
+                placeholder="Inserisci la tua @ email"
                 style={{
+                  width: "350px",
                   marginBottom: "1rem",
                   borderRadius: "12px",
                   border: "none",
@@ -403,7 +442,7 @@ const MainHome = () => {
               <button
                 type="submit"
                 style={{
-                  width: "100%",
+                  width: "382px",
                   fontSize: "1.2rem",
                   fontWeight: "bold",
                   background: "linear-gradient(90deg, #FFD700 0%, #bfa100 100%)",
@@ -433,6 +472,8 @@ const MainHome = () => {
               background: "rgba(43,43,42,0.12)",
               padding: "1rem 0",
               borderRadius: "12px",
+              fontSize: "clamp(2rem, 5vw, 3rem)",
+              width: "100%",
             }}
           >
             {socialIcons.map((icon) => (

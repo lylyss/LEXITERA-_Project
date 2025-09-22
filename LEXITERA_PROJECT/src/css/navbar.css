@@ -16,9 +16,10 @@
   top: 0;
   width: 100%;
   z-index: 1050;
-  background: rgba(0, 0, 0, 0.452);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* Gradient blu profondo con trasparenza */
+  background: linear-gradient(90deg, #0a1a3aee 0%, #1a2d5bcc 50%, #0a1a3aee 100%);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
   font-family: "Metamorphous", serif;
   font-weight: 400;
   font-style: normal;
@@ -30,7 +31,7 @@
 .custom-navbar-sticky .nav-link {
   text-decoration: none !important;
   font-size: 1rem !important;
-  color: #000000 !important;
+  color: #d0c9be !important;
   text-shadow: none;
   box-shadow: none;
 }
@@ -45,7 +46,7 @@
   padding-top: 27px;
   padding-bottom: 28px;
   border-top: 5px solid #dadddfd3 !important;
-  color: #000 !important;
+  color: #000000 !important;
   text-shadow: 0 0 10px #00a2ff, 0 0 16px #001aff;
   box-shadow: none;
 }

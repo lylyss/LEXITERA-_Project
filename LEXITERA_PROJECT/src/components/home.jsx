@@ -23,7 +23,7 @@ const Home = () => {
       <div
         style={{
           position: "fixed",
-          top: 0,
+          top: -35,
           right: 0,
           width: "400px",
           height: "100vh",
@@ -37,7 +37,7 @@ const Home = () => {
       <div
         style={{
           position: "fixed",
-          top: 0,
+          top: -35,
           left: 0,
           width: "400px",
           height: "100vh",
@@ -49,7 +49,7 @@ const Home = () => {
       />
       {/* Spazio per spostare la navbar più in basso */}
       <div style={{ height: "35px" }}></div>
-      <CustomNavbar expand="lg" fixed="top" />
+      <CustomNavbar expand="lg" fixed="top" style={{ zIndex: 4 }} />
 
       <MainHome />
       <Footer />

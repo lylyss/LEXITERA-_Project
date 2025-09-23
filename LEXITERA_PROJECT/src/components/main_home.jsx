@@ -179,8 +179,8 @@ const MainHome = () => {
       </section>
       {/* Sezione 3: Social, PEGI, Form */}
       <section className="main-section social-section metamorphous-regular">
-        <div className="pegi-logo">
-          <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" />
+        <div className="pegi-logo" style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "20px" }}>
+          <img src="src/assets/media/IMG/pegi-16-provisional--jwe3-descriptors.svg" alt="PEGI 16" style={{ maxWidth: "100%", height: "150px" }} />
         </div>
         <>
           <div className="newsletter-form">

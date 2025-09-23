@@ -51,6 +51,7 @@ const News = () => {
     <div
       className="news-page"
       style={{
+        paddingTop: "50px",
         position: "relative",
         minHeight: "100vh",
         backgroundImage: ` url(${bgNews})`,
@@ -85,24 +86,32 @@ const News = () => {
         <h1
           className="mb-4"
           style={{
-            color: "#7a3d00ff",
-            textShadow: "0 0 12px #f7bc03, 0 0 24px #a67c52",
+            color: "#ffffffff",
+            textShadow: "0 0 8px #a67c52, 0 0 16px #f7bc03",
             fontFamily: "'Metamorphous', serif",
             letterSpacing: "2px",
             fontWeight: 700,
             fontSize: "2.5rem",
             borderBottom: "4px solid #f7bc03",
+            padding: "1rem",
             paddingBottom: "0.5rem",
             marginBottom: "2rem",
-            background: "linear-gradient(90deg, #f7bc03 0%, #a67c52 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            background: "blur(1px)",
+            WebkitBackgroundClip: "initial",
+            WebkitTextFillColor: "initial",
+            textAlign: "center",
           }}
         >
           Notizie dal mondo di Lexitera
         </h1>
         {sections.map((section, idx) => (
-          <div key={idx} style={{ marginBottom: "2.5rem", padding: "0.5rem 0" }}>
+          <div
+            key={idx}
+            style={{
+              marginBottom: "2.5rem",
+              padding: "0.5rem 0",
+            }}
+          >
             <h2
               style={{
                 width: "600px",

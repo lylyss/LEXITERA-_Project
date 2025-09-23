@@ -64,7 +64,7 @@ const CustomNavbar = ({ ...props }) => {
           >
             {/* Menu normale: visibile solo su schermi grandi */}
             <div className="nav-links-desktop">
-              <Nav.Link href="#home">Home page</Nav.Link>
+              <Nav.Link href="/">Home page</Nav.Link>
               <Nav.Link href="/news">Notizie</Nav.Link> {/* cambiato href */}
               <Nav.Link href="#personaggi">Personaggi</Nav.Link>
               <Nav.Link href="#esplora">Esplora</Nav.Link>
@@ -73,7 +73,7 @@ const CustomNavbar = ({ ...props }) => {
             </div>
             {/* Menu dropdown: visibile solo su schermi medi/piccoli */}
             <NavDropdown title="Menu" id="main-nav-dropdown" className="nav-links-mobile" show={dropdownOpen} onToggle={handleDropdownToggle}>
-              <NavDropdown.Item href="#home">Home page</NavDropdown.Item>
+              <NavDropdown.Item href="/">Home page</NavDropdown.Item>
               <NavDropdown.Item href="/news">Notizie</NavDropdown.Item> {/* cambiato href */}
               <NavDropdown.Item href="#personaggi">Personaggi</NavDropdown.Item>
               <NavDropdown.Item href="#esplora">Esplora</NavDropdown.Item>

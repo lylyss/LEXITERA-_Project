@@ -302,6 +302,25 @@
   color: #094f88ff;
 }
 
+/* Bottone chiusura dropdown requisiti */
+.dropdown-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 101;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.dropdown-close-btn:hover {
+  color: #ffd700;
+}
+
 /* Responsive download section */
 @media (max-width: 900px) {
   .download-section {
@@ -411,7 +430,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* centra verticalmente */
+  justify-content: center;
   width: 100%;
 }
 
@@ -424,28 +443,32 @@
 /* Responsive newsletter form */
 .newsletter-form {
   max-width: 400px;
-  width: 100%;
   padding: 2rem 1rem 1.5rem 1rem;
   border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
 @media (max-width: 900px) {
   .newsletter-form {
     max-width: 95vw;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    padding: 1.2rem 1rem 1rem 1rem;
     border-radius: 12px;
   }
 }
 @media (max-width: 600px) {
   .newsletter-form {
-    max-width: 99vw;
+    max-width: 95vw;
     padding: 0.7rem 0.2rem 0.5rem 0.2rem;
     border-radius: 8px;
   }
 }
 @media (max-width: 400px) {
   .newsletter-form {
-    max-width: 100vw;
-    padding: 0.3rem 0.1rem 0.2rem 0.1rem;
+    max-width: 90vw;
+    padding: 0.5rem 0.1rem 0.5rem 0.1rem;
     border-radius: 4px;
   }
 }
@@ -533,10 +556,12 @@
 .newsletter-form input[type="email"] {
   font-size: 1rem;
   padding: 0.5rem 0.7rem;
+  width: 300px;
 }
 .newsletter-form button[type="submit"] {
   font-size: 1rem;
   padding: 0.5em 0;
+  width: 300px;
 }
 
 /* Responsive dropdown menu */
@@ -548,18 +573,19 @@
     min-width: 260px;
     padding: 8px 12px;
     font-size: 0.95rem;
+    top: 45%; /* sposta la finestra più in alto di 100px circa rispetto a prima */
   }
 }
 @media (max-width: 600px) {
   .dropdown-menu {
-    min-width: 160px;
+    min-width: 230px;
     padding: 4px 6px;
     font-size: 0.85rem;
   }
 }
 @media (max-width: 400px) {
   .dropdown-menu {
-    min-width: 80px;
+    min-width: 200px;
     padding: 2px 3px;
     font-size: 0.7rem;
   }

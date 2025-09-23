@@ -41,14 +41,15 @@
 .custom-navbar-sticky a:hover,
 .custom-navbar-fixed .nav-link:hover,
 .custom-navbar-sticky .nav-link:hover {
-  box-shadow: 0 0 8px 5px #0177ad;
+  /* rimuovi animazioni e effetti hover anche su mobile */
+  box-shadow: none !important;
   border: none !important;
-  padding-top: 27px;
-  padding-bottom: 28px;
-  border-top: 5px solid #dadddfd3 !important;
-  color: #000000 !important;
-  text-shadow: 0 0 10px #00a2ff, 0 0 16px #001aff;
-  box-shadow: none;
+  padding-top: unset !important;
+  padding-bottom: unset !important;
+  border-top: unset !important;
+  color: #d0c9be !important;
+  text-shadow: none !important;
+  background: none !important;
 }
 
 .custom-navbar-fixed a.active,
@@ -177,7 +178,7 @@
   .custom-navbar-sticky a,
   .custom-navbar-fixed .nav-link,
   .custom-navbar-sticky .nav-link {
-    font-size: 0.75rem !important;
+    font-size: 1.4rem !important; /* aumentato */
     padding: 0.3em 0.4em;
   }
   .navbar-nav-responsive {
@@ -317,4 +318,148 @@
   font-family: "Metamorphous", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+/* Mostra solo su desktop */
+.nav-links-desktop {
+  display: flex;
+  gap: 12px;
+}
+.nav-links-mobile {
+  display: none !important;
+}
+
+/* Mostra solo il dropdown su schermi <= 900px */
+@media (max-width: 900px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+  .nav-links-mobile {
+    display: block !important;
+  }
+  .navbar-responsive-container {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    align-content: stretch !important;
+  }
+  .navbar-nav-responsive {
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100%;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  .navbar-login-dropdown,
+  .nav-links-mobile {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  .navbar-login-dropdown {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Navbar layout sopra 900px: flex row */
+@media (min-width: 901px) {
+  .navbar-responsive-container {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 32px !important;
+    align-content: stretch !important;
+  }
+  .navbar-nav-responsive {
+    flex-direction: row !important;
+    gap: 18px !important;
+    width: 100%;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+.nav-links-mobile .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Metamorphous", serif;
+  gap: 8px;
+  transform: translate(-50%, 20%);
+  width: 150px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #0a1a3aee 0%, #1a2d5bcc 100%);
+  color: #d0c9be;
+  box-shadow: 0 2px 12px #0005;
+  border: none;
+}
+
+@media (max-width: 900px) {
+  .navbar-nav .dropdown-menu,
+  .nav-links-mobile .dropdown-menu {
+    min-width: 255px;
+    font-size: 1.5rem;
+    padding: 6px 8px;
+    border-radius: 8px;
+  }
+  .nav-link,
+  .dropdown-item,
+  .btn {
+    font-size: 1.5rem !important;
+  }
+}
+@media (max-width: 600px) {
+  .navbar-nav .dropdown-menu,
+  .nav-links-mobile .dropdown-menu {
+    min-width: 250px;
+    font-size: 1.2rem;
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+  .nav-link,
+  .dropdown-item,
+  .btn {
+    font-size: 1.2rem !important;
+  }
+}
+@media (max-width: 400px) {
+  .navbar-nav .dropdown-menu,
+  .nav-links-mobile .dropdown-menu {
+    min-width: 60px;
+    font-size: 1rem;
+    padding: 2px 3px;
+    border-radius: 4px;
+  }
+  .nav-link,
+  .dropdown-item,
+  .btn {
+    font-size: 1rem !important;
+  }
+}
+
+.navbar-collapse {
+  display: flex !important;
+}
+
+/* Disabilita animazioni hover sugli elementi del menu */
+.nav-link,
+.dropdown-item,
+.btn {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Disabilita effetti hover specifici */
+.nav-link:hover,
+.dropdown-item:hover,
+.btn:hover {
+  transition: none !important;
+  animation: none !important;
+
+  /* color: inherit !important;
+     background: inherit !important; */
 }

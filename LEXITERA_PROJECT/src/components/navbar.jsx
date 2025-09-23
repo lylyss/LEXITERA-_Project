@@ -1,10 +1,22 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import logo from "../assets/media/IMG/lexitera_LOGO.png";
 import "../css/navbar.css";
 import MusicButton from "./MusicButton";
 
 const CustomNavbar = ({ ...props }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  // Funzione per toggle dropdown
+  const handleDropdownToggle = (isOpen, event, metadata) => {
+    // Chiudi solo se il trigger è "select" (click su voce) o "rootClose" (click fuori)
+    if (metadata && (metadata.source === "select" || metadata.source === "rootClose")) {
+      setDropdownOpen(false);
+    } else {
+      setDropdownOpen(isOpen);
+    }
+  };
+
   return (
     <Navbar variant="dark" expand="md" className="custom-navbar-sticky" {...props}>
       <Container
@@ -38,43 +50,59 @@ const CustomNavbar = ({ ...props }) => {
             />
           </Navbar.Brand>
         </div>
-        <Nav
-          className="navbar-nav-responsive"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "18px",
-          }}
-        >
-          <Nav.Link href="#home">Home page</Nav.Link>
-          <Nav.Link href="#news">Notizie</Nav.Link>
-          <Nav.Link href="#personaggi">Personaggi</Nav.Link>
-          <Nav.Link href="#esplora">Esplora</Nav.Link>
-          <Nav.Link href="#ricarica">Ricarica</Nav.Link>
-          <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
-        </Nav>
-        <div
-          className="navbar-login-dropdown"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginLeft: "40px",
-          }}
-        >
-          <a href="#login" className="btn btn-primary" style={{ marginLeft: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
-            Accedi
-            <span style={{ display: "inline-flex", alignItems: "center" }}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="50" height="50">
-                <path
-                  d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z"
-                  fill="#d0c9be"
-                />
-              </svg>
-            </span>
-          </a>
-        </div>
+
+        <Navbar.Collapse id="main-navbar-nav">
+          <Nav
+            className="navbar-nav-responsive"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "18px",
+              width: "100%",
+            }}
+          >
+            {/* Menu normale: visibile solo su schermi grandi */}
+            <div className="nav-links-desktop">
+              <Nav.Link href="#home">Home page</Nav.Link>
+              <Nav.Link href="#news">Notizie</Nav.Link>
+              <Nav.Link href="#personaggi">Personaggi</Nav.Link>
+              <Nav.Link href="#esplora">Esplora</Nav.Link>
+              <Nav.Link href="#ricarica">Ricarica</Nav.Link>
+              <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
+            </div>
+            {/* Menu dropdown: visibile solo su schermi medi/piccoli */}
+            <NavDropdown title="Menu" id="main-nav-dropdown" className="nav-links-mobile" show={dropdownOpen} onToggle={handleDropdownToggle}>
+              <NavDropdown.Item href="#home">Home page</NavDropdown.Item>
+              <NavDropdown.Item href="#news">Notizie</NavDropdown.Item>
+              <NavDropdown.Item href="#personaggi">Personaggi</NavDropdown.Item>
+              <NavDropdown.Item href="#esplora">Esplora</NavDropdown.Item>
+              <NavDropdown.Item href="#ricarica">Ricarica</NavDropdown.Item>
+              <NavDropdown.Item href="#riscatta-codice">Riscatta codice</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <div
+            className="navbar-login-dropdown"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginLeft: "40px",
+            }}
+          >
+            <a href="#login" className="btn btn-primary" style={{ marginLeft: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
+              Accedi
+              <span style={{ display: "inline-flex", alignItems: "center" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="50" height="50">
+                  <path
+                    d="M470.5 463.6C451.4 416.9 405.5 384 352 384L288 384C234.5 384 188.6 416.9 169.5 463.6C133.9 426.3 112 375.7 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320C528 375.7 506.1 426.2 470.5 463.6zM430.4 496.3C398.4 516.4 360.6 528 320 528C279.4 528 241.6 516.4 209.5 496.3C216.8 459.6 249.2 432 288 432L352 432C390.8 432 423.2 459.6 430.5 496.3zM320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM320 304C297.9 304 280 286.1 280 264C280 241.9 297.9 224 320 224C342.1 224 360 241.9 360 264C360 286.1 342.1 304 320 304zM232 264C232 312.6 271.4 352 320 352C368.6 352 408 312.6 408 264C408 215.4 368.6 176 320 176C271.4 176 232 215.4 232 264z"
+                    fill="#d0c9be"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

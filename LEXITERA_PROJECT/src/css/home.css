@@ -33,12 +33,14 @@
   .side-decor-left,
   .side-decor-right {
     width: 200px;
+    top: 200px;
   }
 }
 @media (max-width: 800px) {
   .side-decor-left,
   .side-decor-right {
     width: 200px;
+    top: 110px;
   }
 }
 @media (max-width: 700px) {

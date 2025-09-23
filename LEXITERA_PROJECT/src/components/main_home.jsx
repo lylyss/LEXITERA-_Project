@@ -80,6 +80,10 @@ const MainHome = () => {
                 pointerEvents: showReq ? "auto" : "none",
               }}
             >
+              {/* Bottone chiusura in alto a destra */}
+              <button className="dropdown-close-btn" type="button" onClick={() => setShowReq(false)} aria-label="Chiudi">
+                &times;
+              </button>
               <li>
                 <span className="dropdown-item-text">
                   <i className="fa-solid fa-desktop" style={{ marginRight: "10px", color: "#094f88ff" }}></i>

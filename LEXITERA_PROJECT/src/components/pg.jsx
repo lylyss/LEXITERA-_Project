@@ -55,14 +55,11 @@ const Pg = () => {
     <div
       style={{
         paddingTop: "50px",
-        height: "1000px",
         position: "relative",
         padding: "0px",
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        minHeight: "100vh",
-        width: "100%",
       }}
     >
       <div style={{ height: "50px" }}></div> {/* spazio */}
@@ -160,7 +157,7 @@ const Pg = () => {
                   alignItems: "flex-end",
                   justifyContent: "flex-end",
                   position: "relative",
-                  minHeight: "400px",
+                  marginTop: "100px",
                 }}
                 className="pg-img-area"
               >
@@ -174,7 +171,7 @@ const Pg = () => {
                     zIndex: 1,
                     marginRight: "2rem",
 
-                    background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.7) 100%)",
+                    background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, rgba(168, 146, 116, 1) 100%)",
                     padding: "0.3rem 1rem",
                     borderRadius: "0px",
                     pointerEvents: "none",
@@ -208,7 +205,7 @@ const Pg = () => {
                 position: "absolute",
                 left: 0,
                 right: 0,
-                bottom: "-400px",
+                bottom: "-120px",
                 background: "rgba(30,30,40,0.85)",
                 padding: "1.2rem 0 1.2rem 0",
                 display: "flex",

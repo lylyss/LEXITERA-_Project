@@ -44,15 +44,8 @@ const characters = [
   },
 ];
 
-const regions = [
-  { key: "luxertia", name: "LUXERTIA" },
-  { key: "gemidera", name: "GEMIDERA" },
-  { key: "exotros", name: "EXOTROS" },
-];
-
 const Pg = () => {
   const [selectedChar, setSelectedChar] = useState(characters[0]);
-  const [selectedRegion, setSelectedRegion] = useState("luxertia");
 
   let bgImg = bgLuxertia;
   if (selectedChar.region === "GEMIDERA") bgImg = bgGemidera;
@@ -72,45 +65,12 @@ const Pg = () => {
         width: "100%",
       }}
     >
+      <div style={{ height: "50px" }}></div> {/* spazio */}
       <CustomNavbar />
-      <Container fluid style={{ padding: 0 }}>
-        <Row>
-          {/* Sidebar */}
-          <Col
-            xs={2}
-            style={{
-              background: "rgba(30,30,40,0.7)",
-              color: "#fff",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              paddingTop: "3rem",
-              paddingLeft: "1.5rem",
-              minWidth: "180px",
-            }}
-          >
-            <ListGroup variant="flush" style={{ width: "100%" }}>
-              {regions.map((region) => (
-                <ListGroup.Item
-                  key={region.key}
-                  style={{
-                    background: "transparent",
-                    color: selectedRegion === region.key ? "#ffd700" : "#fff",
-                    fontWeight: selectedRegion === region.key ? "bold" : "normal",
-                    fontSize: "1.2rem",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: "0.8rem 0",
-                  }}
-                  onClick={() => setSelectedRegion(region.key)}
-                >
-                  {region.name}
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Col>
+      <Container fluid style={{ padding: 0, height: "1050px", position: "relative", minHeight: "80vh", width: "100%" }}>
+        <Row style={{ minHeight: "100vh" }}>
           {/* Main character area */}
-          <Col xs={10} style={{ position: "relative", padding: "0", height: "840px" }}>
+          <Col xs={12} sm={9} md={10} style={{ position: "relative", padding: "0", height: "auto" }}>
             <div
               style={{
                 display: "flex",
@@ -119,6 +79,7 @@ const Pg = () => {
                 height: "100%",
                 position: "relative",
               }}
+              className="pg-main-flex"
             >
               {/* Character Info */}
               <div
@@ -126,8 +87,9 @@ const Pg = () => {
                   flex: 1,
                   padding: "4rem 0 0 2rem",
                   zIndex: 1,
-                  minWidth: "400px",
+                  minWidth: "260px",
                 }}
+                className="pg-info"
               >
                 <h1
                   style={{
@@ -198,8 +160,9 @@ const Pg = () => {
                   alignItems: "flex-end",
                   justifyContent: "flex-end",
                   position: "relative",
-                  minHeight: "600px",
+                  minHeight: "400px",
                 }}
+                className="pg-img-area"
               >
                 <Image
                   src={selectedChar.img}
@@ -245,7 +208,7 @@ const Pg = () => {
                 position: "absolute",
                 left: 0,
                 right: 0,
-                bottom: "0",
+                bottom: "-400px",
                 background: "rgba(30,30,40,0.85)",
                 padding: "1.2rem 0 1.2rem 0",
                 display: "flex",
@@ -253,7 +216,9 @@ const Pg = () => {
                 alignItems: "center",
                 gap: "2rem",
                 zIndex: 1,
+                flexWrap: "wrap",
               }}
+              className="pg-selector-bar"
             >
               {characters.map((char) => (
                 <Button
@@ -298,6 +263,94 @@ const Pg = () => {
         </Row>
       </Container>
       <Footer />
+      <style>
+        {`
+          @media (max-width: 1200px) {
+            .pg-info h1 {
+              font-size: 2.5rem !important;
+            }
+            .pg-img-area img {
+              max-height: 400px !important;
+              width: 90px !important;
+              height: 120px !important;
+            }
+            .pg-selector-bar button {
+              min-width: 100px !important;
+              min-height: 120px !important;
+            }
+          }
+          @media (max-width: 900px) {
+            .pg-main-flex {
+              flex-direction: column !important;
+              align-items: center !important;
+            }
+            .pg-info {
+              padding: 2rem 1rem 0 1rem !important;
+              min-width: 0 !important;
+              width: 100% !important;
+            }
+            .pg-img-area {
+              justify-content: center !important;
+              min-height: 250px !important;
+            }
+            .pg-img-area img {
+              margin-right: 0 !important;
+              max-height: 250px !important;
+              width: 70px !important;
+              height: 90px !important;
+            }
+            .pg-selector-bar {
+              gap: 1rem !important;
+              padding: 0.8rem 0 !important;
+            }
+            .pg-selector-bar button {
+              min-width: 80px !important;
+              min-height: 90px !important;
+              font-size: 0.95rem !important;
+            }
+          }
+          @media (max-width: 600px) {
+            .pg-info h1 {
+              font-size: 1.5rem !important;
+              padding: 0.2rem 0.5rem !important;
+            }
+            .pg-info {
+              padding: 1rem 0.5rem 0 0.5rem !important;
+            }
+            .pg-img-area img {
+              max-height: 120px !important;
+              width: 48px !important;
+              height: 60px !important;
+            }
+            .pg-selector-bar button {
+              min-width: 60px !important;
+              min-height: 60px !important;
+              font-size: 0.8rem !important;
+              padding: 0.2rem !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .pg-info h1 {
+              font-size: 1.1rem !important;
+              padding: 0.1rem 0.2rem !important;
+            }
+            .pg-info {
+              padding: 0.5rem 0.2rem 0 0.2rem !important;
+            }
+            .pg-img-area img {
+              max-height: 80px !important;
+              width: 32px !important;
+              height: 40px !important;
+            }
+            .pg-selector-bar button {
+              min-width: 40px !important;
+              min-height: 40px !important;
+              font-size: 0.7rem !important;
+              padding: 0.1rem !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

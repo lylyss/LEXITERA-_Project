@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import CustomNavbar from "./navbar";
 import Footer from "./footer"; // aggiungi import footer
-import bgNews from "../assets/media/IMG/star.news.jpg";
+import bgNews from "../assets/media/IMG/svana.png";
 import version1Img from "../assets/media/IMG/lostlands.png";
 import version2Img from "../assets/media/IMG/portcity1.png";
 import version3Img from "../assets/media/IMG/treecity.png";

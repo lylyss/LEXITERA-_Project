@@ -114,7 +114,7 @@ const News = () => {
           >
             <h2
               style={{
-                marginLeft: "4rem",
+                marginInline: "4rem",
                 color: "#663505ff",
                 fontFamily: "'Metamorphous', serif",
                 fontWeight: 700,
@@ -125,7 +125,7 @@ const News = () => {
                 paddingLeft: "16px",
                 background: "rgba(255, 248, 220, 0.46)",
                 borderRadius: "8px",
-                display: "inline-block",
+
                 padding: "0.2rem 5rem",
               }}
             >

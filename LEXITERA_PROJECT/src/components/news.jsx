@@ -93,7 +93,7 @@ const News = () => {
             fontWeight: 700,
             fontSize: "2.5rem",
             borderBottom: "4px solid #f7bc03",
-            padding: "1rem",
+
             paddingBottom: "0.5rem",
             marginBottom: "2rem",
             background: "blur(1px)",
@@ -114,6 +114,7 @@ const News = () => {
           >
             <h2
               style={{
+                marginLeft: "4rem",
                 width: "600px",
                 color: "#663505ff",
                 fontFamily: "'Metamorphous', serif",
@@ -221,7 +222,7 @@ const News = () => {
         {`
           @media (max-width: 768px) {
             .news-page {
-              padding: 1rem !important;
+            
             }
             .news-card-img {
               height: 140px !important;
@@ -232,7 +233,7 @@ const News = () => {
           }
           @media (max-width: 480px) {
             .news-page {
-              padding: 0.5rem !important;
+           
             }
             .news-card-img {
               height: 90px !important;

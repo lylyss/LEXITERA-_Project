@@ -65,8 +65,8 @@ const CustomNavbar = ({ ...props }) => {
             {/* Menu normale: visibile solo su schermi grandi */}
             <div className="nav-links-desktop">
               <Nav.Link href="/">Home page</Nav.Link>
-              <Nav.Link href="/news">Notizie</Nav.Link> {/* cambiato href */}
-              <Nav.Link href="#personaggi">Personaggi</Nav.Link>
+              <Nav.Link href="/news">Notizie</Nav.Link>
+              <Nav.Link href="/pg">Personaggi</Nav.Link> {/* cambiato href */}
               <Nav.Link href="#esplora">Esplora</Nav.Link>
               <Nav.Link href="#ricarica">Ricarica</Nav.Link>
               <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
@@ -74,8 +74,8 @@ const CustomNavbar = ({ ...props }) => {
             {/* Menu dropdown: visibile solo su schermi medi/piccoli */}
             <NavDropdown title="Menu" id="main-nav-dropdown" className="nav-links-mobile" show={dropdownOpen} onToggle={handleDropdownToggle}>
               <NavDropdown.Item href="/">Home page</NavDropdown.Item>
-              <NavDropdown.Item href="/news">Notizie</NavDropdown.Item> {/* cambiato href */}
-              <NavDropdown.Item href="#personaggi">Personaggi</NavDropdown.Item>
+              <NavDropdown.Item href="/news">Notizie</NavDropdown.Item>
+              <NavDropdown.Item href="/pg">Personaggi</NavDropdown.Item> {/* cambiato href */}
               <NavDropdown.Item href="#esplora">Esplora</NavDropdown.Item>
               <NavDropdown.Item href="#ricarica">Ricarica</NavDropdown.Item>
               <NavDropdown.Item href="#riscatta-codice">Riscatta codice</NavDropdown.Item>

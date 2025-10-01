@@ -63,7 +63,7 @@ const Luxertia = () => {
             borderRadius: "0px",
             boxShadow: "0 2px 12px #0008",
             padding: "2rem 2.5rem",
-            maxWidth: "600px",
+
             color: "#fff",
             fontSize: "1.2rem",
             textAlign: "center",
@@ -74,6 +74,7 @@ const Luxertia = () => {
           {luxertiaDesc}
         </div>
         {/* Personaggio correlato */}
+        <h2 style={{ color: "#ffd700", margin: "2rem 0 1rem 0", fontSize: "2rem", textShadow: "0 0 6px #000" }}>Personaggio Regionale</h2>
         <div
           style={{
             background: "rgba(30,30,40,0.85)",
@@ -94,8 +95,8 @@ const Luxertia = () => {
             alt={lux.name}
             className="lux-img-hover"
             style={{
-              width: "180px",
-              height: "180px",
+              width: "140px",
+              height: "140px",
               objectFit: "cover",
               borderRadius: "0px",
               marginBottom: "1rem",
@@ -113,7 +114,8 @@ const Luxertia = () => {
           ))}
         </div>
         {/* NPC aggiuntivi */}
-        <div style={{ marginTop: "2rem", display: "flex", gap: "2rem", flexWrap: "wrap", justifyContent: "center" }}>
+        <h2 style={{ color: "#ffd700", margin: "2rem 0 1rem 0", fontSize: "1.6rem", textShadow: "0 0 6px #000" }}>NPC della Regione</h2>
+        <div style={{ marginTop: "0", display: "flex", gap: "2rem", flexWrap: "wrap", justifyContent: "center" }}>
           {luxertiaNpcs.map((npc, idx) => (
             <div
               key={idx}
@@ -133,8 +135,8 @@ const Luxertia = () => {
                 alt={npc.name}
                 className="lux-img-hover"
                 style={{
-                  width: "130px",
-                  height: "260px",
+                  width: "90px",
+                  height: "180px",
                   aspectRatio: "9/18",
                   objectFit: "cover",
                   borderRadius: "0px",
@@ -155,6 +157,9 @@ const Luxertia = () => {
           .lux-img-hover:hover {
             transform: scale(1.25);
             z-index: 2;
+          }
+          body, h1, h2, h3, h4, h5, h6, div, span, p, button {
+            font-family: "Metamorphous", serif !important;
           }
         `}
       </style>

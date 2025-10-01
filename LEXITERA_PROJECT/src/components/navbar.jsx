@@ -67,7 +67,7 @@ const CustomNavbar = ({ ...props }) => {
               <Nav.Link href="/">Home page</Nav.Link>
               <Nav.Link href="/news">Notizie</Nav.Link>
               <Nav.Link href="/pg">Personaggi</Nav.Link> {/* cambiato href */}
-              <Nav.Link href="#esplora">Esplora</Nav.Link>
+              <Nav.Link href="/explore">Esplora</Nav.Link> {/* cambiato href */}
               <Nav.Link href="#ricarica">Ricarica</Nav.Link>
               <Nav.Link href="#riscatta-codice">Riscatta codice</Nav.Link>
             </div>
@@ -76,7 +76,7 @@ const CustomNavbar = ({ ...props }) => {
               <NavDropdown.Item href="/">Home page</NavDropdown.Item>
               <NavDropdown.Item href="/news">Notizie</NavDropdown.Item>
               <NavDropdown.Item href="/pg">Personaggi</NavDropdown.Item> {/* cambiato href */}
-              <NavDropdown.Item href="#esplora">Esplora</NavDropdown.Item>
+              <NavDropdown.Item href="/explore">Esplora</NavDropdown.Item> {/* cambiato href */}
               <NavDropdown.Item href="#ricarica">Ricarica</NavDropdown.Item>
               <NavDropdown.Item href="#riscatta-codice">Riscatta codice</NavDropdown.Item>
             </NavDropdown>

@@ -48,9 +48,7 @@ Short description
 LEXITERA è un'interfaccia React per un progetto narrativo/gioco.  
 Contiene: navbar personalizzata, pagine regione (Luxertia, Exotros, Gemidera), pagina News, profilo utente con login/registrazione (localStorage), gestione immagine profilo, portafoglio, assistenza (ticket), riscatti codici e layout responsive.
 
-Demo / Screenshot
------------------
-Aggiungi qui screenshot o GIF: `docs/screenshots/` → carica immagini e inserisci Markdown.
+
 
 Caratteristiche principali
 --------------------------
